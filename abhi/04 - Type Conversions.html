@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        //Numeric conversions
+        let age = "24";
+        console.log(typeof age); //string
+        console.log(typeof(age)); //string
+
+        let age2 = Number(age);
+        console.log(typeof age2); //number
+
+        let age3 = Number("24abc")
+        console.log(typeof age3); //number
+        console.log(age3); //NaN
+
+        let marks = Number(null);
+        console.log(typeof marks); //number
+        console.log(marks); //0
+
+        let score = Number(undefined);
+        console.log(typeof score); //number
+        console.log(score); //NaN
+
+        let score2 = Number(true);
+        console.log(typeof score2); //number
+        console.log(score2); //1
+
+
+
+        // String conversions
+        let price = String(240);
+        console.log(typeof price); //string
+
+        let login = true;
+        console.log(typeof login); //boolean
+        console.log(typeof(String(login))); //string
+
+
+
+        //Boolean conversions
+        let signin = 1;
+        console.log(signin); //1
+        console.log(typeof signin); //number
+        console.log(typeof(Boolean(signin))); //Boolean
+        console.log(Boolean(signin)); //true
+
+        let signup;
+        console.log(signup); //undefined
+        console.log(typeof signup); //undefined
+        console.log(typeof(Boolean(signup))); //Boolean
+        console.log(Boolean(signup)); //false
+
+        let signin2 = 0;
+        console.log(signin2); //0
+        console.log(typeof signin2); //number
+        console.log(typeof(Boolean(signin2))); //Boolean
+        console.log(Boolean(signin2)); //false
+
+        let sgnupName = "Abhi";
+        console.log(sgnupName); //Abhi
+        console.log(typeof sgnupName); //string
+        console.log(typeof(Boolean(sgnupName))); //Boolean
+        console.log(Boolean(sgnupName)); //true
+    </script>
+</body>
+</html>

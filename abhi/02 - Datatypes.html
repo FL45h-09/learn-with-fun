@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        //Primitive datatypes :- 7 types (Number, Boolean, String, BigInt, Null, Undefined, Symbol)
+        const marks = 80;
+        const marks2 = 80.5;
+
+        const loggedIn = false;
+        const value = null;
+
+        let contact; //Undefined
+        let phoneNo = undefined; //Undefined
+
+        const logo = Symbol('123');
+        const smLogo = Symbol('123');
+        console.log(logo === smLogo); // on comparing both symbol the return value is not same;
+
+        const bigNum = 37289172593219;
+        const bigNum2 = 3728919n; // BigInt
+
+
+
+        //Non-Primitive [Reference] :- 3 types (Array, Objects, Functions)
+
+        const food = ["Vadapav", "Samosa", "Frankie"] //Array 
+        const randomTerms = ["One", 1]
+        console.log(randomTerms); 
+
+        const details ={ name: "Abhi", age: 24}; //Object
+        const details2 = { fastFood: ["Vadapav", "Samosa", "Frankie"], isFavourite: true}; 
+        console.log(details2);
+    </script>
+</body>
+</html>
