@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types</title>
+</head>
+<body>
+    <script>
+        'use strict;'
+    
+        // #1 Primitve Datatypes (string, number, boolean, bigInt, undefined, symbol, null)
+        let btsBand = 'Bangtan Boys';
+        console.log(btsBand);
+    
+        const btsBandMember = 7 ;
+        console.log(btsBandMember);
+    
+        const bCount = 4 < 1;
+        console.log(bCount);
+    
+        const bigIntergernumber = 4516464956n + 1n;
+        console.log(bigIntergernumber);
+        
+        let age;
+        console.log(age);
+    
+        let x = Symbol('hey');
+        console.log(x);
+        console.log(typeof(x));
+        console.log(x.description);
+    
+        let _nothing = null;
+        console.log(_nothing);
+    
+        const _decimal = 20.15;
+        let _result = parseFloat(_decimal);
+        console.log(_result);
+    
+        let checkInfinity = (1 / 0);
+        console.log(checkInfinity);
+        
+        // #2 Non-Primitive Datatypes (Objects, Array, Date)
+    
+        let btsMemberName = ['RM', 'JK', 'V', 'Jimin', 'Jin', 'Jhope', 'Suga'];
+        // btsMemberName.push('hbr', 'njfhh');
+        let _namelength = btsMemberName.length;
+        console.log(btsMemberName + " Number of member is " + _namelength);
+    
+    
+        let person_1 = {name : 'Lee', age: 36, gender: 'Male'};
+        person_1.age = "20"; //changed property object value
+        person_1.profession = 'Actor'; // added new key:value pair
+        console.log(person_1);
+    
+        const _Date = new Date ("2022-03-25");
+        console.log(_Date);
+    
+        
+    
+    </script>
+</body>
+</html>

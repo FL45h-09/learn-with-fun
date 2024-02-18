@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversion</title>
+</head>
+<body>
+   <script>
+    'use strict';
+    // # three types of conversions are there (string, number & boolean conversion)
+
+    let _condition = true; //boolean
+    let conversion_str = String(_condition); //string
+    console.log(typeof(conversion_str));
+
+
+    var str = "123"; //str   
+    let conversion_number = Number(str);  //number
+    console.log(typeof(conversion_number));
+
+    const _num1 = 123;
+    const _num2 = '';
+    alert(Boolean(_num1));
+    alert(Boolean(_num2));
+
+
+
+   </script> 
+</body>
+</html>
