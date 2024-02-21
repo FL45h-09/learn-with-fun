@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let year = prompt("Birth year", "");
+        if(year == 1999){ 
+            alert("Correct");
+            alert("Birth year is " + year);
+        }
+        else{
+            alert("Incorrect");
+        }
+
+
+        let birthYear = (year == 1999);
+        if(birthYear){
+            console.log("Right year");
+        }
+        else{
+            console.log("Wrong year");
+        }
+
+
+
+        //else if
+
+        if (year < 1999){
+            console.log("Too early");
+        }
+        else if(year > 1999){
+            console.log("Too late");
+        }
+        else{
+            console.log("Correct");
+        }
+
+
+
+        // Conditional operator
+
+        let age = 24;
+        if(age < 18){
+            console.log("Age is less than 18");
+        }
+        else if(age > 18){
+            console.log("Age is greater than 18");
+        }
+        else{
+            console.log("Eligible");
+        }
+
+
+
+        // Ternary operator
+
+        let accessallowed = (age == 24) ? true : false;
+        console.log("Access allowed = " + accessallowed); // true
+
+        let accessAllowed = age > 24 ? true : false;
+        console.log("Access allowed = " + accessAllowed); // false
+
+
+        let marks = 80;
+        let result = (marks < 35) ? "Failed" : (marks >= 35 && marks < 60) ? "Passed" : marks >=60 && marks <= 100 ? "Topper" : "Congratulations";
+        console.log("Result : " + result); // Topper
+    </script>    
+</body>  
+</html>
