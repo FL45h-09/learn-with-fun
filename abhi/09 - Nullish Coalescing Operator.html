@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        let name = "Abhi";
+        console.log(name ?? "Anonymous")
+
+        let firstName = null;
+        let lastName = null;
+        let nickName = "Supercoder";
+        console.log(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
+
+
+        let height = null;
+        let width = null;
+        let area = (height ?? 100) * (width ?? 50);
+        console.log(area); // 5000
+
+        let area2 = height ?? 100 * width ?? 50;
+        console.log(area2); // 0
+
+        let area3 = height ?? (100 * width) ?? 50;
+        console.log(area3); // 0
+
+        // Using ?? with logical operator
+        let x = 1 && 2 ?? 3; // Syntax error
+    </script>
+</body>
+</html>

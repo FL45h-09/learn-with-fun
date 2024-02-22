@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // OR Operator
+        console.log("OR Operator");
+
+        console.log(0 || 0); // 0
+        console.log(0 || 1); // 1
+        console.log(1 || 0); // 1
+        console.log(1 || 1); // 1
+
+        console.log(2 || 1); // 2
+        console.log(2 || 3); // 2
+        console.log(3 || 2); // 3
+
+        let hour = 9;
+        if(hour < 10 || hour > 12) {
+            console.log("closed")
+        }
+        else {
+            console.log("open")
+        }
+
+        let hours = 12;
+        let isWeekend = true;
+        if(hours < 10 || hours > 12 || isWeekend){
+            console.log("closed") // isWeekend
+        }
+        else {
+            console.log("open")
+        }
+
+        console.log(null || 1); // 1
+        console.log(undefined || 1); // 1
+        console.log(null || 0); // 0
+        console.log(undefined || 0); // 0
+        console.log(null || undefined || 1); // 1
+        console.log(null || undefined || 0); // 0
+
+
+        let firstName = "";
+        let lastName = "";
+        let nickName = "";
+        console.log(firstName || lastName || nickName || "Anonymous"); // Anonymous
+
+
+        
+        // AND Operator
+        console.log("AND Operator");
+
+        console.log(0 && 0); // 0
+        console.log(0 && 1); // 0
+        console.log(1 && 0); // 0
+        console.log(1 && 1); // 1
+
+
+        let min = 5;
+        let sec = 30;
+        if(min == 15 && sec == 30){
+            console.log("Perfect time");
+        }
+        else {
+            console.log("Wrong time");
+        }
+
+        console.log(2 && 1); // 1
+        console.log(2 && 3); // 3
+        console.log(3 && 2); // 2
+        // If first value is true, it returns second value
+
+        console.log(null && 1); // null
+        console.log(undefined && 1); // undefined
+        console.log(null && 0); // null
+        console.log(undefined && 0); // undefined
+        console.log(null && undefined && 1); // null
+        console.log(null && undefined && 0); // null
+        // If first value is false, it returns first value, and ignored other operands
+
+
+
+        // NOT Operator
+        console.log("NOT Operator");
+
+        console.log( !true ); // false
+        console.log( !0 ); // true
+
+        //Using double not operator
+        console.log( !!"non-empty string" ); // true
+        console.log( !!null ); // false
+        console.log( !!undefined ); // false
+        console.log( !!" " ); // true
+        
+</script>
+</body>
+</html>
