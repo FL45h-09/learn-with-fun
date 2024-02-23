@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\vishal\\02.11-logicaal-operator.js"
+            "program": "${workspaceFolder}\\vishal\\02.13-loops.js"
         }
     ]
 }
