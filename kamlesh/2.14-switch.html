@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Switch case Syntax
+
+// switch(expression){
+//     case 1:
+//         statement;
+//     break;
+//     case 2:
+//         statement;
+//     break;
+//     default:
+//         statememt;
+// }
+
+// program using switch statement
+
+/*let a = 2;
+
+switch (a) {
+
+    case 1:
+        a = 'one';
+        break;
+    case 2:
+        a = 'two';
+        break;
+    default:
+        a = 'not found';
+        break;
+}
+console.log(`The value is ${a}`); */
+
+// calculator program using switch
+
+let result;
+
+const operator = prompt("Enter Operator (either +, -, * or /);");
+
+const num1 = parseFloat(prompt("Enter First Number"));
+const num2 = parseFloat(prompt("Enter Second Number"));
+
+switch(operator){
+    case '+':
+    result = num1 + num2;
+    alert(`Addition of ${num1} and ${num2} is ${result}`);
+    break;
+
+    case '-':
+    result = num1 - num2;
+    alert(`Subtraction of ${num1} and ${num2} is ${result}`);
+    break;
+
+    case '/':
+    result = num1 / num2;
+    alert(`Division of ${num1} and ${num2} is ${result}`);
+    break;
+
+    case '*':
+    result = num1 * num2;
+    alert(`Multiplication of ${num1} and ${num2} is ${result}`);
+    break;
+
+    default:
+    alert("Invalid Operator");
+}
+    </script>
+</body>
+</html>
