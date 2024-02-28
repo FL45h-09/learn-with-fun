@@ -86,6 +86,91 @@
         let from = "Ann"
         showMessage(from, "Hello"); // * Ann # : Hello
         console.log(`${from}`);
+
+
+
+        // Default values
+        function showAge(fname, surname = "no surname given", age){
+            console.log(`Name: ${fname}, Surname: ${surname}, Age: ${age}`);
+        }
+        showAge("Abhi", undefined, 24); // Name: Abhi, Surname: no surname given, Age: 24
+
+        /* The default value works if parameter is strictly equal to undefined, */
+        /* If we dont pass any value it becomes undefined but wont show default value */
+
+
+        /* old ways to define default values */
+        /* 1. Using If else */
+        function userInfo(fname, lname){
+            if(lname === undefined){
+                lname = "default";
+            }
+            console.log(`${fname} ${lname}`);
+        }
+        userInfo("Abhi"); // Abhi default
+
+        /* 2. Using Or */
+        function userInfor2(lname){
+            lname = lname || "default";
+            console.log(`${lname}`);
+        }
+        userInfor2(); // default
+
+        /* 3. Using Nullish coalescing */
+        function userInfor3(lname){
+            console.log(lname ?? "default");
+            
+        }
+        userInfor3(); // default
+
+
+
+        // Returning a value
+        function addition(a, b){
+            return a + b;
+        }
+        console.log(`Addition: ${addition(2, 3)}`);
+
+
+        function checkAge(){
+            if(age >= 18){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        let age = prompt("Age: ", '');
+
+        (checkAge()) ? console.log("Access Granted") : console.log("Access Denied");
+
+
+
+        /* A function with an empty return or without it returns Undefined */
+        function returmTest(){ /* Empty */ }
+        returmTest(); 
+        console.log(returmTest()); // undefined 
+
+
+
+        /* Newline between return and the value */
+        function test(x, y){
+            return 
+            x+y;
+            /* This doesnt work because javascript assumes semicolon after return hence it becomes "empty return" and return undefined */
+        }
+        console.log(test(2, 3)); // undefined
+
+        
+           /* If we want to add value on newline we have to wrap the expression in parenthesis */
+           /* And we should start the paranthesis or opening of parenthesis on the same line of return */
+        function test2(p, q){
+            return (
+                p+q
+            )
+        }
+        console.log(test2(3, 3)); // 6
+
     </script>
 </body>
 </html>
