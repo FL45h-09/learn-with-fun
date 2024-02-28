@@ -75,6 +75,65 @@
         // user(); // Rahul
         // console.log(name); // Rahul
 
+        // 4) Parameters
+
+        // function showMessage(from, text) { // parameters: from, text
+        // alert(from + ': ' + text);
+        // }
+
+        // showMessage('Ann', 'Hello!'); // Ann: Hello! (*)
+        // showMessage('Ann', "What's up?"); // Ann: What's up? (**)
+
+        // 4.1) Here’s one more example: we have a variable from and pass it to the function. Please note: the function changes from, but the change is not seen outside, because a function always gets a copy of the value:
+
+        // function showMessage(from, text) {
+
+        // from = '*' + from + '*'; // make "from" look nicer
+
+        // alert( from + ': ' + text );
+        // }
+
+        // let from = "Ann";
+
+        // showMessage(from, "Hello"); // *Ann*: Hello
+
+        // the value of "from" is the same, the function modified a local copy
+        // alert( from ); // Ann
+
+        // When a value is passed as a function parameter, it’s also called an argument.
+
+        // 5) Modern JavaScript engines support the nullish coalescing operator ??, it’s better when most falsy values, such as 0, should be considered “normal”:
+
+        // function showCount(count) {
+        // if count is undefined or null, show "unknown"
+        // alert(count ?? "unknown");
+        // }
+
+        // showCount(0); // 0
+        // showCount(null); // unknown
+        // showCount(); // unknown
+
+        // 6) Returning a value
+
+        // function showMessage(a,b){
+        //     return (a + b);
+        // }
+        // console.log(showMessage(4,2))
+
+
+        function checkAge(age){
+            if(age <= 18){
+                return true;
+            }else{
+                return confirm('Do you have permission from your parents?');
+            }
+        }
+        let age = prompt("Enter your Age", 18);
+        if(checkAge(age)){
+            alert("Access Granted");
+        } else {
+            alert( 'Access denied' );
+        }
     </script>
 </body>
 </html>
