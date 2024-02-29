@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Syntax
+        function name(parameter1, parameter2,  parameterN){
+            body
+        }
+
+
+
+        // Function Declaration
+
+        function message(){
+            console.log(`Hello`)
+        }
+        message(); // Hello
+
+
+
+        // Local variables
+
+        function showValue(){
+            let value = 2;
+            console.log(`Value: ${value}`);
+        }
+        showValue(); // 2
+        //console.log(`Value: ${value}`); // Error!!! The variable is inside the function has block scope.
+
+
+
+        // Outer variable
+
+        let percentage = 80;
+        function showPercentage(){
+            let isPass = `Pass with ${percentage}%`
+            console.log(isPass);
+        }
+        showPercentage() // Pass with 80%
+
+
+
+        let username = "Abhi";
+        function showUsername(){
+            username = "Chorge"
+            let message = `Hello ${username}`
+
+            console.log(message);
+        }
+        console.log(`Username: ${username}`); // Username: Abhi
+        showUsername(); // Hello Chorge
+        console.log(`Username: ${username}`); // Username: Chorge  {The value was modified by the function
+        
+
+
+        let userName = "John";
+        function showUserName(){
+            let userName = "Snow"
+            console.log(`userName: ${userName}`); 
+        }
+        showUserName(); // Snow
+        console.log(`userName: ${userName}`); // John
+
+        //If a same-named variable is declared inside the function then it shadows the outer one. For instance, in the code below the function uses the local userName. The outer one is ignored:
+        
+
+
+        // Parameters
+        function fullName(Fname, Lname){
+            console.log(`Full name: ${Fname} ${Lname}`);
+        }
+        fullName("Abhi", "Chorge");
+
+
+        function showMessage(from, text){
+            from = `* ${from} #`
+            console.log(`${from} : ${text}`);
+        }
+        let from = "Ann"
+        showMessage(from, "Hello"); // * Ann # : Hello
+        console.log(`${from}`);
+
+
+
+        // Default values
+        function showAge(fname, surname = "no surname given", age){
+            console.log(`Name: ${fname}, Surname: ${surname}, Age: ${age}`);
+        }
+        showAge("Abhi", undefined, 24); // Name: Abhi, Surname: no surname given, Age: 24
+
+        /* The default value works if parameter is strictly equal to undefined, */
+        /* If we dont pass any value it becomes undefined but wont show default value */
+
+
+        /* old ways to define default values */
+        /* 1. Using If else */
+        function userInfo(fname, lname){
+            if(lname === undefined){
+                lname = "default";
+            }
+            console.log(`${fname} ${lname}`);
+        }
+        userInfo("Abhi"); // Abhi default
+
+        /* 2. Using Or */
+        function userInfor2(lname){
+            lname = lname || "default";
+            console.log(`${lname}`);
+        }
+        userInfor2(); // default
+
+        /* 3. Using Nullish coalescing */
+        function userInfor3(lname){
+            console.log(lname ?? "default");
+            
+        }
+        userInfor3(); // default
+
+
+
+        // Returning a value
+        function addition(a, b){
+            return a + b;
+        }
+        console.log(`Addition: ${addition(2, 3)}`);
+
+
+        function checkAge(){
+            if(age >= 18){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        let age = prompt("Age: ", '');
+
+        (checkAge()) ? console.log("Access Granted") : console.log("Access Denied");
+
+
+
+        /* A function with an empty return or without it returns Undefined */
+        function returmTest(){ /* Empty */ }
+        returmTest(); 
+        console.log(returmTest()); // undefined 
+
+
+
+        /* Newline between return and the value */
+        function test(x, y){
+            return 
+            x+y;
+            /* This doesnt work because javascript assumes semicolon after return hence it becomes "empty return" and return undefined */
+        }
+        console.log(test(2, 3)); // undefined
+
+        
+           /* If we want to add value on newline we have to wrap the expression in parenthesis */
+           /* And we should start the paranthesis or opening of parenthesis on the same line of return */
+        function test2(p, q){
+            return (
+                p+q
+            )
+        }
+        console.log(test2(3, 3)); // 6
+
+    </script>
+</body>
+</html>

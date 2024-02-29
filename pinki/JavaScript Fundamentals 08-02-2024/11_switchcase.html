@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwitchCase</title>
+</head>
+<body>
+    <script>
+        // #switchcase statement
+        'use strict';
+        let a = 3 + 2;
+        switch(a){
+            case 4:
+                console.log("case 4 executed");
+                break;
+            case 5:
+                console.log("case 5 executed");
+                break;
+            case 6: 
+                console.log("case 6 executed");
+                break;
+            default:
+                console.log("Default Executed");
+                
+        }
+
+        // #2 grouping of 'case' statement
+        let p = 2*2;
+        switch (p){
+            case 3 :
+                console.log("group of case 3 executed");
+                break;
+            case 4 : //If there is no break then the execution continues with the next case without any checks.
+            case 5 :
+                console.log("group of case 4 & 5 executed");
+                break;
+            case 6 :
+                console.log("group of case 6 executed");
+                break;
+            default:
+                console.log("Case Not Found");
+        }
+
+        // #3 Type Matters
+        let field = prompt("Enter a value from 0 to 5");
+        // let fieldsss = Number(field);
+        switch (field){
+            case "0":
+                alert("Entered Number is : " + field);
+                break;
+            case "1":
+            case "2":
+                alert("Entered Number is : " + field + " in the case 1 & 2");
+                break;
+            case 6:
+                alert("Never Executes");
+                break;
+            default:
+                alert("Number Not Entered");
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        let a = 2+2+2;
+        switch(a){
+            case 3: console.log(3);
+            break;
+
+            case 4: console.log(4);
+            break;
+
+            case 5: console.log(5);
+            break;
+
+            default: console.log("Ans not found!!!");
+        }
+
+
+        // Without break
+            let b = 2+2;
+            switch(b){
+                case 3: console.log(3);
+
+                case 4: console.log(4);
+
+                case 5: console.log(5);
+
+                case 6: console.log(6);
+                        break;
+
+                default: console.log("Ans not found!!!")
+            } //f there is no break then the execution continues with the next case without any checks.
+
+
+        // Grouping of case 
+
+        let c= 2+2;
+        switch(c){
+            case 3: console.log(3);
+                    console.log("Too Small Ans");
+                    break;
+
+            case 4: 
+            case 5: console.log(4);
+                    console.log("Right Ans");
+                    break;
+
+            case 6: console.log(6);
+                    console.log("Too Big Ans");
+                    break;
+
+            default: console.log("Ans not found!!!");
+        }
+
+
+        // Type matters
+
+        let d=prompt("Enter a value");
+        switch(d){
+            case `0`:
+            case `1`:
+                console.log(`zero and one`);
+                break;
+
+            case `2`: 
+                console.log(`two`);
+                break;
+            
+            case 3:
+                console.log(`Never executes`);
+                break;
+
+            default: console.log(`Unknown value`);
+        }
+
+    </script>
+</body>
+</html>
