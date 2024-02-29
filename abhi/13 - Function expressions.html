@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Function expressions
+        let sum = function(a, b){
+            console.log(a+b);
+        }
+        sum(2, 3);
+
+
+
+        function sayHi(){
+            console.log("Hi");
+        }
+        let func = sayHi;
+        func(); // Hi
+        sayHi(); // Hi
+
+
+        let sayHi2 = function(){
+            console.log("Hi2");
+        }
+        let func2 = sayHi2;
+        func2(); // Hi2
+
+
+        
+        // Callback functions
+        let ask = function(question, yes, no){
+            if(confirm(question)) yes();
+            else no();
+        }
+
+        let addition = function(a, b){
+            a=3; b=2;
+            let add = a + b;
+            console.log(`Addition: ${add}`);
+        }
+
+        let cancel = function(){
+            console.log("Canceled");
+        }
+
+         ask("Addition?", addition, cancel);
+
+
+        /* Shorter way */
+        let ask2 = function(question, yes, no){
+            if(confirm(question)) yes();
+            else no();
+        }
+
+        ask2(
+            "Again Addition?", 
+            function addition(a, b){ a=5; b=3; console.log(a+b); },
+            function cancel(){ console.log("Canceled"); }
+        );
+
+
+
+        // Function Expression vs Function Declaration
+        /* Function Declaration */
+        function mux(a, b){
+            console.log("Mux: " + a*b);
+        }
+        mux(2, 3);
+
+        /* Function Expression */
+        let mux2 = function(a, b){
+            console.log("Mux2: " + a*b);
+        }
+        mux2(2, 3);
+    </script>
+</body>
+</html>
