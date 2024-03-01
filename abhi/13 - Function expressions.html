@@ -78,6 +78,21 @@
             console.log("Mux2: " + a*b);
         }
         mux2(2, 3);
+
+
+        /* Difference between function decalration and function expression, is you can access or print the output of function declaration anywhere */
+        /* But we cannot access or print output of function expression before initialization */
+        /* For Example: */
+
+        console.log(`Test: ${test()}`)
+        function test(){
+            return 2*3;
+        }
+
+        console.log(`Test 2: ${test2}`) 
+        let test2 = function(){
+            return 3*4
+        }
     </script>
 </body>
 </html>
