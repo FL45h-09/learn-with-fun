@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // let addition = (a,b) => {
+        //     return a+b;
+        // }
+        // console.log(`Addition ${addition(2,3)}`)
+
+        // let age = prompt("Enter your age ?", 18);
+
+        // let checkAge = () => {
+        //     return (age >= 18) ? "Eligible" : "Not Eligible";
+        // }
+        // console.log(`Age ${checkAge()}`)
+
+        let age = Number(prompt("Enter Your Age ?", 18));
+
+        let checkAge = (age >= 18) ? ()=> "Eligible" : ()=> "Not Eligible";
+
+        console.log(`Age ${checkAge()}`)
+    </script>
+</body>
+</html>
