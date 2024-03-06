@@ -61,6 +61,36 @@
         console.log(info["Like Birds"]); // undefined
 
         info["Like Birds"]=true;
+
+        
+        /* Using another variable to store key(Identifier) */
+        let key = "Like Birds";
+        info.key=true;
+        console.log(`Key ${info.key}`); // true
+
+        let firstName = "name";
+        info.firstName = "Abhi";
+        console.log(`First Name: ${info.firstName}`);
+
+        let initialName = prompt("Enter: ", "firstName");
+        info.initialName = "Abhi";
+        console.log(`Initial Name: ${info[initialName]}`); /* If we enter anything except "initalName" */
+        console.log(`Initial Name: ${info.initialName}`); /* If we use dot notation here it gives value of "initialName" after entering anything in prompt */
+        
+
+
+        // Computed properties
+        /* Computed properties means we can use square brackets "[]" in object literal */
+
+        let fruit = prompt("Enter fruit: ", "apple");
+        let bag = {
+            [fruit]: 5,
+        }
+        console.log(bag.apple); // 5
+        console.log(bag[apple]); // Error
+
+
+        
     </script>
 </body>
 </html>
