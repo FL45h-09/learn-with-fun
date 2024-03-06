@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        // Objects
+        /* Object can be created using curly brackets "{}" with an optional list of properties */
+        /* A property is a “key: value” pair, where key is a string (also called a “property name”), and value can be anything. */
+        /* Object can be created using two types:- 1) Using Object Constructor,  2) Using Object Literal */
+
+        let a = new Object(); // Object constructor
+        let b = []; // Object literals
+
+
+        // Literals and properties
+
+        let info = {
+            name : "Abhi", // where key is "name" and value is "Abhi".
+            age : 24, // where key is "age" and value is "24".
+        }
+
+
+        /* Property values are accessible using dot notation */
+        console.log(info.name); // Abhi
+
+
+        /* We can add or remove and read any value from it anytime */
+        info.isAdmin = true;
+        console.log(info.isAdmin); // true
+
+
+        delete info.age;
+        console.log(info.age); // undefined
+
+
+        /* We can also multi-word property names, but then names must be quoted */
+        info={
+            name : "Abhi",
+            isAdmin : true,
+            "Last Name" : "Chorge"
+        }
+
+
+        // Square brackets
+        /* For multi-word properties dot access doesn't work, it gives the syntax error */
+        /* Dot requires to be valid variable or identifier with no spaces and the name or identifier doesn't start with number and special characters */
+        //console.log(info."Last Name"); // Syntax console.error;
+
+        /* We can use square brackets for multi-word properties */
+        console.log(info["Last Name"]); // Chorge
+        
+        info["Like Birds"]=true;
+        console.log(info["Like Birds"]); // true
+        delete info["Like Birds"];
+        console.log(info["Like Birds"]); // undefined
+
+        info["Like Birds"]=true;
+
+        
+        /* Using another variable to store key(Identifier) */
+        let key = "Like Birds";
+        info.key=true;
+        console.log(`Key ${info.key}`); // true
+
+        let firstName = "name";
+        info.firstName = "Abhi";
+        console.log(`First Name: ${info.firstName}`);
+
+        let initialName = prompt("Enter: ", "firstName");
+        info.initialName = "Abhi";
+        console.log(`Initial Name: ${info[initialName]}`); /* If we enter anything except "initalName" */
+        console.log(`Initial Name: ${info.initialName}`); /* If we use dot notation here it gives value of "initialName" after entering anything in prompt */
+        
+
+
+        // Computed properties
+        /* Computed properties means we can use square brackets "[]" in object literal */
+
+        let fruit = prompt("Enter fruit: ", "apple");
+        let bag = {
+            [fruit]: 5,
+        }
+        console.log(bag.apple); // 5
+        console.log(bag[apple]); // Error
+
+
+        
+    </script>
+</body>
+</html>
