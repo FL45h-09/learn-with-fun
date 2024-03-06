@@ -13,6 +13,37 @@
     console.log(student);
 
     // multi word property name
-    let operator = {add: '+', sub: '-', mul: 'x', "equals to": '='}; // here equal to is multi word propery name
+    let operator = {add: '+', sub: '-', mul: 'x', "equals to": '='}; // here equal to is multi word property name
     console.log(operator);
+
+    // Square Brackets (for multiword property dot access doesn't work)
+    let user = {}; // object literal
+    // let key = 'likes Birds';
+    // user[key] = true;
+    user['likes Birds'] = true; 
+    alert(user['likes Birds']);
+
+    let employee1 = {name:'john', age:28};
+    let key = prompt("Enter Your name : ", 'name');
+    console.log(employee1[key]); // john
+
+    // Computed Properties (we can use square brackets[] in object literals, when creating an object)
+    let fruits = prompt("Your Favourite Friut :", 'apple');
+    let bag = {
+        [fruits] : 5,
+    };
+    console.log(bag.apple); // 5
+    console.log(bag[fruits]);// 5
+
+    // Property value shorthand (a shorthand syntax that allows object properties to be extracted into specific variable values)
+    function employee2(name, age){
+        return {
+            name : name,
+            age : age,
+        }
+    }
+    let emp = employee2('Andrew','30');
+    alert(emp.name); //Andrew
+
+    
 </script>
