@@ -87,10 +87,56 @@
             [fruit]: 5,
         }
         console.log(bag.apple); // 5
-        console.log(bag[apple]); // Error
+        //console.log(bag[apple]); // Error
 
+
+
+        // Property value shorthand
+
+        function details(name, age){
+            return{
+                name, age,
+            }
+        }
+        let user=details("Abhi", 24)
+        console.log(`Details: ${user.name}`);
 
         
+        function result(subject, marks){
+            return{
+                subject, marks,
+            }
+        }
+        let student=result("Maths", 85)
+        console.log(`Result: ${student.subject} = ${student.marks}`);
+
+
+
+        // Property names limitations
+        /* As we already know, a variable cannot have the same name which is is already reserved by javascript such as "for", "let", "return", etc */
+        /* But for an objects property there's no such limitations */
+        /* there are no restrictions on property names, they can be any string, number or symbols */
+        /* Other types are automatically getting converted to string */        
+
+        let demo = {
+            for : 1,
+            let : 2,
+            $ : 3,
+            8 : 4,
+        }
+        demo._obj_ = 5
+
+        console.log(`For: ${demo.for}`); // 1
+        console.log(`Let: ${demo.let}`); // 2
+        console.log(`$: ${demo.$}`); // 3
+        console.log(`8: ${demo[8]}`); // 4 
+        /* If we give property name as digit, for printing output have to use square brackets */
+        console.log(`_obj_: ${demo._obj_}`); 
+
+
+
+        // Property existence test, “in” operator
+
     </script>
 </body>
 </html>
