@@ -67,3 +67,8 @@ const obj3 = {
 };
 
 // console.log(obj.for + obj.let + obj.return);
+
+
+// let usr = {};
+
+// console.log( user.noSuchProperty === undefined ); // true means "no such property"
