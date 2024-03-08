@@ -16,23 +16,23 @@
 // *******
 
 
-// let i, j, k, l, m, n, o;
-// l= 1;
-// k = 0;
-// for(i = 4; i>=1; i--){
-//     document.write("<p>");
-//     for(j = 1; j<= 7 - k; j++){
-//         if(j == i){
-//             // document.write("*");
-//             for(m = 1; m<= l; m ++){
-//                 document.write("<span>*</span>");
-//             }
+let i, j, k, l, m, n, o;
+l= 1;
+k = 0;
+for(i = 4; i>=1; i--){
+    document.write("<p>");
+    for(j = 1; j<= 7 - k; j++){
+        if(j == i){
+            // document.write("*");
+            for(m = 1; m<= l; m ++){
+                document.write("<span>*</span>");
+            }
             
-//         }else{
-//             document.write("<span>&nbsp;</span>");
-//         }
-//     }
-//     l = l+2;
-//     k = k+2;
-//     document.write("</p>");
-// }
+        }else{
+            document.write("<span>&nbsp;</span>");
+        }
+    }
+    l = l+2;
+    k = k+2;
+    document.write("</p>");
+}
