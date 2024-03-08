@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // *
+        // **
+        // ***
+        // ****
+        // *****
+        for(let a=0; a<=5; a++){
+            for(let b=0; b<a; b++){
+                document.write("*");
+            }
+            document.write('<br>');
+        }
+        document.write('<br>');
+
+
+        // 1
+        // 2 3
+        // 4 5 6
+        // 7 8 9 10
+        // 11 12 13 14 15
+        let n = 0;
+        for(let a=0; a<5; a++){
+            for(let b=0; b<=a; b++){
+                n++;
+                document.write(n+" ");
+            }   
+            document.write("<br>");
+        }
+        document.write('<br>');
+
+
+        // 20 19 18 17 16 15
+        // 14 13 12 11 10
+        // 9 8 7 6
+        // 5 4 3
+        // 2 1
+        // 0
+        let m = 21;
+        for(let a=5; a>=0; a--){
+            for(let b=0; b<=a; b++){
+                m--;
+                document.write(m+" ");
+            }   
+            document.write("<br>");
+        }
+        document.write('<br>');
+
+
+        // ******
+        // *####*
+        // *####*
+        // *####*
+        // *####*
+        // ******
+        for(let a=0; a<=5; a++){
+            for(let b=0; b<=5; b++){
+                (a==0 || a==5 || b==0 || b==5) ? document.write("*") : document.write("#");
+            }
+            document.write("<br>");
+        }
+        document.write('<br>');
+
+    </script>
+    
+
+    <!-- <script>
+        let age = prompt("Enter age:", 18)
+        let logIn = () => {
+            return (age<18) ? confirm("Access Denied!!! Have parents permission") ? alert("Access Granted") : alert("Access Denied") : alert("Access Granted")
+        }
+        logIn();
+
+    </script> -->
+</body>
+</html>

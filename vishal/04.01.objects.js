@@ -35,3 +35,40 @@ let user2 = {
 // we have to use them in [] brackets
 
 user2["is admin"] = true;
+
+// const addUser = (name, age)=>{
+//   return {
+//     name : name,
+//     age : age,
+//   };
+// }
+
+// short hand
+const addUser = (name, age)=>{
+  return {
+    name,
+    age,
+  };
+}
+
+let users = addUser("vishal", 30);
+
+// console.log(users.name);
+
+
+
+// Property names limitations
+
+// there are no limitations on properties names like variables
+const obj3 = {
+  for: 1,
+  let: 2,
+  return: 3
+};
+
+// console.log(obj.for + obj.let + obj.return);
+
+
+// let usr = {};
+
+// console.log( user.noSuchProperty === undefined ); // true means "no such property"
