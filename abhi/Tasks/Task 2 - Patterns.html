@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        /* Square Hollow Pattern */
+        for(let i=1; i<=6; i++){
+            for(let j=1; j<=5; j++){
+                if(i==1 || i==6 || j==1 || j==5){
+                    document.write("<span style='width: 10px; display: inline-block;'>*</span>");
+                }
+                else{
+                    document.write("<span style='width: 10px; display: inline-block;'>&nbsp;</span>");
+                }
+            }
+            document.write("<br>");
+        }
+
+
+    document.write("<br>");
+
+
+        /* Number Triangular */
+        let a,b,c,d,e,f;
+        c=1;
+        for(a=4; a>0; a--){
+            for(b=0; b<5; b++){
+                if(a==b || a<=b){
+                    document.write(c);
+                }
+                else{
+                    document.write("&nbsp;");
+                }   
+            }
+            c++;
+            document.write("<br>");
+        }
+
+
+    document.write("<br>");
+
+
+        /* Number Increasing Pyramid */
+        for(let i=1; i<=4; i++){
+            for(let j=1; j<=i; j++){
+                document.write(j+"&nbsp;");
+            }
+            document.write("<br>");
+        }
+
+
+    document.write("<br>");
+
+
+        /* Number Increasing Reverse Pyramid */
+        for(let i=5; i>1; i--){
+            for(let j=1; j<i; j++){
+                document.write(j+"&nbsp;");
+            }
+            document.write("<br>");
+        }
+
+
+    document.write("<br>");
+
+
+        /* Number Changing Pyramid */
+        let k=1;
+        for(let i=1; i<5; i++){
+            for(let j=0; j<i; j++){
+                document.write(k+"&nbsp;");
+                k++;
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
