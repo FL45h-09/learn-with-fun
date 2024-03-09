@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Object references and copying
+        /* One fundamental difference between object and primitive datatypes is that object are stored and copied by the reference */
+        /* Whereas primitive values are always copied "as a whole value" */
+        /* A variable assigned to the object is stores "memory address of object" not the object */
+
+        let test={
+            name: "Abhi",
+        }
+        /* Here "test" is variable which has a reference of memory which is "name" */
+
+        let Test={
+            name: "Abhi",
+        }
+        let Test2 = Test; // Copy the reference
+        /* Here when the object variable is copied, then actually the reference is copied, But the object itself is not duplicated */
+
+
+        /* We can use variable not only to access the object also modify contents in it, as follows: */
+        let info = {
+            name: "Abhi",
+            age: 24,
+        }
+        console.log(info.name); // Abhi
+        let admin = info;
+        admin.name = "Admin"; // Change by the reference
+        console.log(admin.name); // Admin
+        console.log(info.name); // Admin
+        /* If ther are 2 variables one with object and another one is to copy reference of first variable */
+        /* If we change the value of key using 2nd variable */
+        /* After that we get changed value on both variables */
+        /* Because we are not actually changing the value as per objects */
+        /* Its actually changing the value reference to memory address, thats why we getting changed value in both variables */
+
+
+
+        // Comparison by reference
+
+        let a={ value: "a"};
+        let b=a;
+        console.log(a==b); // true
+        console.log(a===b); // true
+        /* Here Two or more objects are same if they are referencing the same object */
+
+        let c={ value: "c", value1: "d"};
+        let d={ value: "c"};
+        console.log(c==d); // false
+        console.log(c===d); // false
+        /* Here both the objects are independent and not referencing each other in any way, hence it returns false */
+    
+
+        /* Const object can be modified */
+        const e={ value: "a"};
+        console.log(`e.value: ${e.value}`);
+        e.value="b";
+        console.log(`e.value: ${e.value}`);
+    
+        // e={ value: "c"}
+        console.log(`e.value: ${e.value}`);
+        /* We can only change the value of key using const, we cannot change whole object */
+
+
+
+        // Cloning and merging, Object.assign
+        /* Here we can duplicate object, means we can create an new object and duplicate the structure of existing object in the new one */
+        let user = {
+            name:{
+                firstName: "Abhi",
+                lastName: "Chorge",
+            },
+            age: 24,
+        }
+        let bio={}
+        for(let key in user){
+            bio[key]=user[key]
+        }
+        console.log(bio.name.firstName);
+
+        /* Object.assign */
+        let name={ firstName: "Abhi"}
+        let age = { age: 24}
+        let gender = { gender: "male"}
+
+        Object.assign(name, age, gender); // Can copy all the properties of age and gender into name
+        console.log(`name: ${name.firstName}`);
+        console.log(`age: ${name.age}`);
+        console.log(`gender: ${name.gender}`);
+
+
+        /* If copied property name already exist it gets overwritten, for eg: */
+        let firstName = { name: "Abhi",}
+        Object.assign(firstName, {name: "John"});
+        console.log(`firstName: ${firstName.name}`);
+
+
+        /* Object cloning in simple way */
+        let Bio = {
+            name: "Abhi",
+            age: 24,
+            gender: "male",
+        }
+        let clone = Object.assign(Bio, {});
+        // let clone = Object.assign({}, Bio); // Output remains same
+        console.log(`Clone name: ${clone.name}`); // Abhi
+        console.log(`Clone age: ${clone.age}`); // 24
+
+
+
+        // Nested Cloning
+        let result = {
+            subject: {
+                maths: "Maths",
+                english: "English",
+                science: "Science",
+            },
+            passingMarks: 35,
+        }
+        let cloneResult = Object.assign(result, {});
+        console.log(result === cloneResult); // true
+        console.log(cloneResult.subject.maths); // Maths
+
+
+        /* Structured clone */
+        let result1 = {
+            subject: {
+                maths: "Maths",
+                english: "English",
+                science: "Science",
+            },
+            passingMarks: 35,
+        }
+        let cloneResult1 = structuredClone(result1);
+        console.log(result1 === cloneResult1); // false
+        console.log(cloneResult1.subject.maths); // Maths
+
+    </script>
+</body>
+</html>
