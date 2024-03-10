@@ -9,6 +9,9 @@
     <script>
         'use strict';
 
+        document.write("Day 1");
+        document.write("<br><br>");
+
         /* Square Hollow Pattern */
         for(let i=1; i<=6; i++){
             for(let j=1; j<=5; j++){
@@ -82,6 +85,76 @@
 
         
     document.write("<br>");
+    document.write("Day 2");
+    document.write("<br><br>");
+
+        /* Zero one triangle */
+        let m=0;
+        let l="";
+        for(let i=0; i<4; i++){
+            for(let j=0; j<=i; j++){
+                if(i==j && j%2==1){
+                    l="0"+l;
+                    document.write(l);
+                    document.write("<br>");
+                }
+                else if(i==j && j%2==0){
+                    l="1"+l;
+                    document.write(l);
+                    document.write("<br>");
+                }
+            }
+        }
+
+
+    document.write("<br>");    
+
+
+        /* Rhombus pattern */
+        for(let i=0; i<5; i++){
+            for(let k=0; k<=i; k++){
+                document.write("&nbsp;");
+            }
+            for(let j=0; j<5; j++){                
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+
+    document.write("<br>");    
+
+
+        /* Diamond pattern */
+        /*let da, db, dc, dd, de, df;
+        dc=1;
+        de=0;
+        for(da=8; da>0; da--){
+            for(db=0; db<=15-de; db++){
+                if(da==db){
+                    for(dd=0; dd<dc; dd++){
+                        if(dd%2==1){
+                            document.write("<span style='width:10px; display:inline-block'>*</span>");
+                        }
+                        else{
+                            document.write("<span style='width:10px; display:inline-block'>&nbsp;</span>");
+                        }
+                    }
+                }
+                else{
+                    document.write("<span style='width:10px; display:inline-block'>&nbsp;</span>");
+                }
+            }
+            document.write("<br>");
+            if(dc==7){
+                dc-=2;
+                de-=2;
+            }
+            else{
+                dc+=2;
+                de+=2;
+            }
+        }*/
     </script>
 </body>
 </html>
