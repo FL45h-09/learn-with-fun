@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Garbage Collection
+        /* Garbage collection in javascript is a process in the javascript engine, which monitors all objects and removes those (for objects, it free up memory) that have become unreachable */
+        /* Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions… All that takes memory. */
+
+
+        // Reachability
+        /* The main concept of memory management in JavaScript is reachability. */
+        /* “Reachable” values are those that are accessible or usable somehow. They are guaranteed to be stored in memory. */
+        /* For example: */
+        let user = {
+            name: "Abhi",
+        }
+        console.log(`User: ${user.name}`); // Abhi
+
+        user = null;
+        //console.log(user.name); // Error: Garbage collection
+        /* Now it becomes unrechable, because no references to it. */
+
+        let bio = {
+            name: "Abhi",
+        }
+        let fname = bio;
+        console.log(`(1) fname: ${fname.name}`); // Abhi
+         
+        bio.name = null; 
+        
+        console.log(`(2) fname: ${fname.name}`); // Abhi
+        console.log(`bio: ${bio.name}`); // Error
+        /* Here the object is still reachable via "fname" variable so it must stay in memory */
+        /* If we overwrite admin too it can be remover */
+
+        console.log("name" in fname); // true
+        // console.log("name" in bio); // Error
+    </script>
+</body>
+</html>
