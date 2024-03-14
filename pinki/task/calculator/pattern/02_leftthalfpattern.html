@@ -1,0 +1,18 @@
+<script>
+    'use strict';
+    let n = 5;
+    let string = "";
+    for(let i = 1; i <= n; i++){
+        // for spacing
+        for(let j = 1; j <= n-i; j++){
+            string += " ";
+        }
+        // for * 
+        for(let k = 1; k <= i; k++){
+            string += "*";
+        }
+        string += '<br>';
+    }
+    document.write('<pre>' + string + '</pre>');
+    // <pre> is preformatted text, it displays fixed-width font
+</script>

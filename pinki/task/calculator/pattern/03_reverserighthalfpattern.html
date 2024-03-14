@@ -1,0 +1,35 @@
+<script>
+    'use strict';
+    // let n = 5;
+    // let string = "";
+    // for(let i = 0; i < n; i++){
+    //     for(let j = 0; j < n-i; j++){
+    //         string += '*';
+    //     }
+    //     string += '<br>';
+    // }
+    // document.write(string);
+    
+    // ******
+    // *****
+    // ****
+    // ***
+    // **
+    // *
+    // for (let i = 0; i <= 5; i++){
+    //     for(let j = 5; j >= i; j--){
+    //         document.write("*");
+    //     }
+    //     document.write("<br>")
+    // }
+    
+    let n = 5;
+    let string = "";
+    for (let i = 0; i <= n; i++){
+        for(let j = n; j >= i; j--){
+            string += '*';
+        }
+        string += '<br>';
+    }
+    document.write(string);
+</script>
