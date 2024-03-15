@@ -5,7 +5,7 @@ for (let i = 1; i <= n; i++){
         string += ' ';
     }
     for (let k = 1; k <= i; k++){
-        string += '*';
+        string += '*' + ' ';
     }
     string += '\n';
 }
