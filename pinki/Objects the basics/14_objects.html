@@ -45,5 +45,41 @@
     let emp = employee2('Andrew','30');
     alert(emp.name); //Andrew
 
+    //Property names limitations
+        // As we already know, a variable cannot have a name equal to one of the language-reserved words like “for”, “let”, “return” etc.
+        // But for an object property, there’s no such restriction:
+        //In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
+
+    let obj =  {
+        for: 1,
+        let: 2, 
+        return: 3
+    };
+    alert(obj.for + obj.let + obj.return); //6
+    // alert(obj['for'] + obj['let'] + obj['return']); //6
+
+    // property existence test "in" operator
+    let user_ = {sub1 : 'math', sub2 : 'english'};
+    console.log('sub1' in user_); // true
+    console.log('blabla' in user_); // false
+
+    // The "for..in" loop  (executes the body for each key among object properties)
+    let user__ = {name__ : 'pinkiiii', age__ : '23', isAdmin : true};
+    for(let key in user__){
+        console.log(key);
+        console.log(user__[key]);
+    }
+
+    // ordered like an objects
+    let codes = {"49": "Germany", "41": "Switzerland", "44": "Great Britain", "1": "USA"};
+    for(let code in codes){
+        // console.log(codes[key]);
+        console.log(code);
+    }
+    
+
+
+
+
     
 </script>
