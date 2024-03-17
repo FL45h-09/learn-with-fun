@@ -1,0 +1,28 @@
+<script>
+    'use strict';
+    // #1 When an object variable is copied, the reference is copied, but the object itself is not duplicated.
+    let user = {name: 'john'};
+    let admin = user; // admin copies the reference id of user
+    admin.name = "peter";
+    document.write(user.name); //peter
+
+    // #2 Comparison by reference (Two objects are equal only if they are the same object.)
+    let a = {};
+    let b = a; //copy the reference
+    let c = {};
+    document.write('<br>' + (a == b) + '<br>'); //true (both variables reference the same object)
+    document.write((a == c) + '<br>'); //false (two independent objects)
+
+    // #3 Clonning & merging, object.assign (what if we need to duplicate an object? We can create a new object and replicate the structure of the existing one, by iterating over its properties and copying them on the primitive level.)
+    let grp1 = {empname : 'jack', age : '34'};
+    let grp2 = {};
+    //copy all grp1 property into it
+    for(let key in grp1){
+        grp2[key] = grp1[key];
+    }
+    grp2.empname = 'sam'; //grp2 is a fully independent object with the same content
+    document.write(grp2.empname + '<br>'); //changed the data in it
+    document.write(grp1.empname); // still jack in the original object
+
+
+</script>
