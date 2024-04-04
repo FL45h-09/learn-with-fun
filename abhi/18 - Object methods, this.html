@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        // Object methods, "this"
+        /* A function which is a property of an object is called as method */
+
+        /* Method examples */
+        let user = {
+            name : 'Abhi',
+            age: 24,
+        }
+        user.sayHi = function(){
+            console.log("Hello");
+        }
+        user.sayHi();
+
+
+
+        // Method shorthand
+        let result1 = {
+            isPass : function(){
+                console.log("Pass");
+            }
+        }
+        result1.isPass();
+
+        /* Shorter way for above code follows: */
+        let result2 = {
+            isPass(){
+                console.log("Fail");
+            }
+        }
+        result2.isPass();
+
+        /* As demostrated we can omit the "function" keyword and just write "isPass()" */
+
+
+
+        // “this” in methods
+        
+        /* If we using function in object, then we dont need to use "function" keyword, If we use function keyword it will throw error */
+        /* We can directly call function using function name and braces, example: demo() */
+
+        let bio1 = {
+            name: "Abhi",
+            age: 24,
+            fname(){
+                console.log(`bio1: ${this.name}`);
+            }
+        }
+        bio1.fname();
+
+        /* Without using "this" */
+        let bio2 = {
+            name: "Abhi",
+            age: 24,
+            fname(){
+                console.log(`bio2: ${bio2.name}`);
+            }
+        }
+        bio2.fname();
+
+
+        // “this” is not bound
+
+        /* We can use "this" in any function even if its not a method of an object */
+
+        let fname =  {name: "abhi"}
+        let lname = {name: "chorge"}
+
+        function sayhi(){
+            console.log(this.name);
+        }
+
+        fname.f = sayhi;
+        lname.f = sayhi;
+        fname.f(); // abhi
+        lname.f(); // chorge
+
+
+
+        // Calling without an object
+        function demo(){
+            console.log(this);
+        }
+        demo(); // undefined
+
+        /* In this case, "this" is undefined in strict mode */
+        /* If we try to access "this.name" here, it will throw error */
+        /* In non-strict mode, the value of "this" will be the global object (window) */
+
+
+
+        // Arrow functions have no “this”
+
+        /* Arrow functions are special, they don't have their own "this". */
+        /* If we reference this from such a function, Its taken from the outer "normal function" */
+        /* If we use arrow function directly then it will throw "blank" output */
+
+        let arrowDemo1 = {
+            fname: "Abhi",
+            age: 24,
+            demoF : () => console.log(this.name),
+        }
+        arrowDemo1.demoF(); // blank
+
+
+        let arrowDemo2 = {
+            fname: "Abhi",
+            age: 24,
+            demo(){
+                let demoF = () => console.log(this.fname);
+                demoF();
+            }
+        }
+        arrowDemo2.demo(); // Abhi
+    </script>
+</body>
+</html>
