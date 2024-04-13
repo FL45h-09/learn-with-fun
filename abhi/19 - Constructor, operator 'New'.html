@@ -43,7 +43,7 @@
 
         function Marks(subject, marks){
             if(!new.target){
-                return new Marks(subject, marks);
+                return new Marks(subject, marks); // If not used "new", it adds "new"
             }
             this.subject = subject;
             this.marks = marks;
@@ -53,9 +53,45 @@
         console.log(student1.marks);
 
         let student2 = Marks("Abhi", 90);
-        console.log(student2.subject); // 
-        console.log(student2.marks); //
+        console.log(student2.subject);
+        console.log(student2.marks);
 
+
+
+        // Return from constructors
+        /* Ususally constructors don not have a return statement. Their task is to write all the necessary stuff into "this", and it automatially becomes the result */
+        
+        /* But if there is a "return" statement, then the rule is simple: */
+        /* 1. If "return" is called with an object, then the object is returned instead of this. */
+        /* 2. If "return" is called with a primitive, it's ignored */
+        
+        /* In simple swords, "return" with an object returns that object, in all other cases "this" will returned. */
+
+        function Bio1(name){
+            this.name = "Abhi";
+            return {name : "Chorge"};
+        }
+        console.log(new Bio1().name);
+
+        function Bio2(name){
+            this.name = "Abhi";
+            return name = "Chorge";
+        }
+        console.log(new Bio2().name);
+
+
+
+        // Methods in constructor
+        
+        function Info(name){
+            this.name = name;
+            this.sayHi = () => {
+                console.log(`Hello World, I am ${name}.`)
+            }
+        }
+        let abhi = new Info("Abhi");
+        console.log(abhi.name);
+        abhi.sayHi();
     </script>
 </body>
 </html>
