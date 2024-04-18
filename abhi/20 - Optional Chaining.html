@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Optional chaining '?.'
+
+        /* The optional chaining "?." is a safe way to access nested object properties, even if an intermediate property doesn’t exist. */
+        
+        // The “non-existing property” problem
+
+        let user = {};
+        console.log(user.address.street); // Error
+
+        /* Thats the expected output, Javascript works like this. As 'user.address.street' is "undefined", An attempt to get 'user.address.street' fails with an error. */
+        /* In many practical cases we’d prefer to get "undefined" instead of an error here (meaning “no street”). */
+
+        /* Another method to check */
+        console.log(user.address ? user.address.street : 'undefined'); // Undefined
+        /* It works, there's no error but its quite inelegant because the "user.address" appears twice in the code. */
+        /* For more deeplly nested property, more repititions are required. */
+        
+        /* Another method to check */
+        console.log(user.address && user.address.street && user.address.street.name); // undefined
+        /* Using "And" we getting same problem as above is we have to repeat property name */
+
+
+
+        // Optional chaining
+
+        /* The Optional chaining "?." stops the evaluation, if the value before "?." is "undefined" or "null" and returns "undefined". */
+
+        /* In other words, "value?.prop": */
+        /* 1. works as "value.prop", if "value" exists, */
+        /* 2. Otherwise (when value is "undefined/null") it returns "undefined". */
+
+        console.log(user?.address?.street); // undefined
+        
+        /* Here the code is shoreter and clean, there's no repetition of property value. */
+        
+        /* Note: The "?." syntax makes optional the value before it, but not any further. */
+        
+        /* For example: */
+        console.log(user?.address.street.name); // error
+        /* In above example: In "user?.address.street.name" the "?." allows "user" to safely be null/undefined */
+        /* But thats only for "user". Further properties are accessed in a regular way. If we want some of them to be optional, then we need to replace more "." with "?.". */
+
+
+        /* We have define a variable, other wise it will throw an error. */
+        /* The variable must be declared. */
+        console.log(bio?.name); // Error
+
+    </script>
+</body>
+</html>
