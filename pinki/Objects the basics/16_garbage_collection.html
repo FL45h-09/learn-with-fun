@@ -1,0 +1,32 @@
+<script>
+    'use strict';
+    let user = {name : 'pinki'};
+    //copied the reference from user to admin:
+    let admin = user;
+    // If the value of user is overwritten, the reference is lost:
+    user = null;
+    //…Then the object is still reachable via admin global variable, so it must stay in memory. If we overwrite admin too, then it can be removed.
+    console.log(admin);
+
+
+
+    // #2 Interlinked objects
+    function marry(man, woman) {
+    woman.husband = man;
+    man.wife = woman;
+
+        return {
+            father: man,
+            mother: woman
+        }
+    }
+
+    let family = marry({
+        name: "Johns"
+        }, {
+        name: "Anns"
+        });
+    delete family.father;
+    delete family.mother.husband ;
+    console.log(family);
+</script>
