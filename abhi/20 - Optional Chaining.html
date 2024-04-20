@@ -16,7 +16,7 @@
         // The “non-existing property” problem
 
         let user = {};
-        console.log(user.address.street); // Error
+        //console.log(user.address.street); // Error
 
         /* Thats the expected output, Javascript works like this. As 'user.address.street' is "undefined", An attempt to get 'user.address.street' fails with an error. */
         /* In many practical cases we’d prefer to get "undefined" instead of an error here (meaning “no street”). */
@@ -47,15 +47,69 @@
         /* Note: The "?." syntax makes optional the value before it, but not any further. */
         
         /* For example: */
-        console.log(user?.address.street.name); // error
+        //console.log(user?.address.street.name); // error
         /* In above example: In "user?.address.street.name" the "?." allows "user" to safely be null/undefined */
         /* But thats only for "user". Further properties are accessed in a regular way. If we want some of them to be optional, then we need to replace more "." with "?.". */
 
 
         /* We have define a variable, other wise it will throw an error. */
         /* The variable must be declared. */
-        console.log(bio?.name); // Error
+        //console.log(bio?.name); // Error
 
+
+        let info = {
+            name: "Abhi",
+        }
+        console.log(info.fullName?.lname); // Undefined
+        console.log(info.fullName?.mname); // Undefined
+        console.log(info.age); // Undefined
+
+        /* Here the property before "?." doesn't exist it will show "Undefined" */
+        /* It checks left part of "?." */
+
+
+
+        // Short-circuiting
+        /* As it was said before, the "?." immediately stops (“short-circuits”) the evaluation if the left part doesn’t exist. */
+        /* So, if there are any further function calls or operations to the right of "?.", they won’t be made. */
+
+        let marks = null;
+        let x = 0;
+        console.log(marks?.sayHi(x++)); // Undefined
+
+        /* There is no user, so the execution doesn't reach sayHi */
+
+
+
+        // Other variants: ?.(), ?.[]
+        /* The optional chaining "?." is not an operator, but a special syntax construct, that also works with functions and square brackets. */
+        /* For example: "?.()" is used to call a function that may not exist */
+
+        let userAdmin = {
+            admin() {
+                console.log("I am admin");
+            }
+        };
+        let userGuest = {};
+        userAdmin.admin?.(); // I am admin
+        userGuest.admin?.(); // Nothinmg happens in console
+
+        /* Here, in both lines we first use the dot (userAdmin.admin) to get "admin" property, because we assume that the user object exists, so it’s safe read from it. */
+        /* Then "?.()" checks the left part: if the "admin" function exists, then it runs (that’s so for userAdmin). Otherwise (for userGuest) the evaluation stops without errors. */
+        /* The "?.[]" syntax also works, if we’d like to use brackets "[]" to access properties instead of dot. Similar to previous cases, it allows to safely read a property from an object that may not exist. */
+
+        let name = "firstName";
+        let user1 = {
+            firstName: "John",
+        };
+        let user2 = null;
+        console.log(user1?.[name]); // John
+        console.log(user2?.[name]); // Undefined
+
+
+        /* Also we can use "?." with "delete": */
+        delete user1?.firstName;
+        console.log(user1?.firstName); // Undefined
     </script>
 </body>
 </html>
