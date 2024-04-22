@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Symbol type
+
+        /* By specification, only two primitive types may serve as object property keys: */
+        /* 1. String type */
+        /* 2. Symbol type */
+        
+        /* Otherwise, if one uses another type, such as number, it’s autoconverted to string. So that obj[1] is the same as obj["1"], and obj[true] is the same as obj["true"]. */
+        
+
+        // Symbols
+
+        /* A value of this type can be created using Symbol(): */
+        let id1 = Symbol();
+        /* Upon creation, we can give symbols a description (also called a symbol name), mostly useful for debugging purposes: */
+        let id2 = Symbol("id");
+        /* Here "id2" is a symbol with the description "id". */
+        /* Symbols are guaranteed to be unique. Even if we create many symbols with exactly the same description, they are different values. The description is just a label that doesn’t affect anything. */
+
+        let id3 = Symbol("id");
+        let id4 = Symbol("id");
+        console.log(id3==id4); // false
+        console.log(id3); // Symbol(id)
+
+
+        // Symbols don’t auto-convert to a string
+        /* Most values in JavaScript support implicit conversion to a string. For instance, we can alert almost any value, and it will work. Symbols are special. They don’t auto-convert. */
+        
+        //alert(id3); // Error: Cannot convert a symbol value to a string.
+
+        /* That’s a “language guard” against messing up, because strings and symbols are fundamentally different and should not accidentally convert one into another. */
+        /* If we really want to show a symbol, we need to explicitly call ".toString()" on it, like here: */
+
+        alert(id3.toString()); // Symbol(id)
+        console.log(typeof(id3.toString())); // String
+        
+        alert(id4.toString()); // Symbol(id)
+        console.log(typeof(id4.toString())); // String
+
+        /* Or get symbol.description property to show the description only: */
+
+        alert(id3.description); // id
+        console.log(typeof(id3.description)); // String
+
+
+
+        // “Hidden” properties
+        /* Symbol allows us to create "hidden" properties of an object, that no other part of code can accidentally access or overwrite. */
+        
+        let user = { name: "Abhi"};
+        let id = Symbol("id");
+        user[id]=1;
+        alert(user[id]); // 1
+        console.log(user[id]); // 1
+        
+        
+        /**/
+        /**/
+    </script>
+</body>
+</html>
