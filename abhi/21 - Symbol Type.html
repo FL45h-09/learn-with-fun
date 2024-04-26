@@ -64,8 +64,80 @@
         console.log(user[id]); // 1
         
         
-        /**/
-        /**/
+
+        // Symbols in an object literal
+        /* If we want to use Symbol in object literal, we need to add square brackets around it. */
+        let userId = Symbol("id");
+        let bio = {
+            name: "Abhi",
+            [userId]: 12,
+        }
+        console.log(bio[userId]); // 12
+        alert(typeof(bio[userId])); // Number
+
+
+        // Symbols are skipped by for…in
+
+        let Id = Symbol('id');
+        let User = {
+            name: "Abhi",
+            age: 24,
+            [id]: 123,
+        }
+        for(let key in User) alert(`key: ${key}`);
+        alert(`User: ${User[id]}`);
+        console.log(`User: ${User[id]}`);
+
+        /* In output, it will not show "id" property */
+
+        /* In contrast, "Object.assign" copies both string and symbol properties: */
+
+        let Bio = Object.assign({}, User);
+        alert(`Bio: ${Bio[id]}`);
+        console.log(`Bio: ${Bio[id]}`);
+
+
+
+        // Global symbols
+        /* As we have seen, all symbols are different, even if they have same name. */
+        /* But somtimes we want same named symbols to be same entities. */
+        /* To achieve that, there exists a "global symbol registry". We can create symbols in it and access them later, and it guarantees that repeated accesses by the same name return exactly the same symbol. */
+        /* In order to read a symbol from the registry, we can use "Symbol.for(key)". */
+        /* Then it checks global registry and if there's a symbol described as "key",  it will return it. */
+        /* Otherwise, it creates a new "Symbol(key)" and stores it in the registry by the given "key". */
+
+        let gId = Symbol.for("id"); // Read from global registry    // if the symbol does not exist it is created.
+        let gIdAgain = Symbol.for("id");
+        alert(gId === gIdAgain); // true
+
+        
+        let gId1 = Symbol.for("id");
+        let gIdAgain1 = gId1;
+        alert(gId1 === gIdAgain1); // true
+
+
+
+        // Symbol.keyFor
+        /* To return a value of symbol, we can use "Symbol.keyFor()" */
+
+        let sym1 = Symbol.for("name");
+        let sym2 = Symbol.for("id");
+
+        alert(Symbol.keyFor(sym1));
+        console.log(Symbol.keyFor(sym1));
+        alert(Symbol.keyFor(sym2));
+        console.log(Symbol.keyFor(sym2));
+
+        /* The "Symbol.keyFor" internally uses the global symbol registry to look up the key for the symbol. So it doesn’t work for non-global symbols. If the symbol is not global, it won’t be able to find it and returns "undefined". */
+
+        let gSym = Symbol.for("name");
+        let lSym = Symbol("name")
+
+        alert(Symbol.keyFor(gSym)); // name
+        console.log(Symbol.keyFor(gSym)); // name
+        alert(Symbol.keyFor(lSym)); // undefined
+        console.log(Symbol.keyFor(lSym)); // undefined
+
     </script>
 </body>
 </html>
