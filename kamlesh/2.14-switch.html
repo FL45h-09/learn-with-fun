@@ -8,69 +8,82 @@
 <body>
     <script>
         // Switch case Syntax
+    // The switch has one or more case blocks and an optional default.
+    // switch(expression){
+    //     case 1:
+    //         statement;
+    //     break;
+    //     case 2:
+    //         statement;
+    //     break;
+    //     default:
+    //         statememt;
+    // }
 
-// switch(expression){
-//     case 1:
-//         statement;
-//     break;
-//     case 2:
-//         statement;
-//     break;
-//     default:
-//         statememt;
-// }
+    // 01 -> program using switch statement
 
-// program using switch statement
+    /*let a = 2;
 
-/*let a = 2;
+    switch (a) {
 
-switch (a) {
+        case 1:
+            a = 'one';
+            break;
+        case 2:
+            a = 'two';
+            break;
+        default:
+            a = 'not found';
+            break;
+    }
+    console.log(`The value is ${a}`); */
 
-    case 1:
-        a = 'one';
+    // 02 -> program
+
+    let a = '1';
+    let b = 0;
+
+    switch(+a){
+        case b + 1 :
+            alert("exact");
+            break;
+        default:
+            alert("Not matched");
+    }
+
+    // calculator program using switch
+
+    /*let result;
+
+    const operator = prompt("Enter Operator (either +, -, * or /);");
+
+    const num1 = parseFloat(prompt("Enter First Number"));
+    const num2 = parseFloat(prompt("Enter Second Number"));
+
+    switch(operator){
+        case '+':
+        result = num1 + num2;
+        alert(`Addition of ${num1} and ${num2} is ${result}`);
         break;
-    case 2:
-        a = 'two';
+
+        case '-':
+        result = num1 - num2;
+        alert(`Subtraction of ${num1} and ${num2} is ${result}`);
         break;
-    default:
-        a = 'not found';
+
+        case '/':
+        result = num1 / num2;
+        alert(`Division of ${num1} and ${num2} is ${result}`);
         break;
-}
-console.log(`The value is ${a}`); */
 
-// calculator program using switch
+        case '*':
+        result = num1 * num2;
+        alert(`Multiplication of ${num1} and ${num2} is ${result}`);
+        break;
 
-let result;
-
-const operator = prompt("Enter Operator (either +, -, * or /);");
-
-const num1 = parseFloat(prompt("Enter First Number"));
-const num2 = parseFloat(prompt("Enter Second Number"));
-
-switch(operator){
-    case '+':
-    result = num1 + num2;
-    alert(`Addition of ${num1} and ${num2} is ${result}`);
-    break;
-
-    case '-':
-    result = num1 - num2;
-    alert(`Subtraction of ${num1} and ${num2} is ${result}`);
-    break;
-
-    case '/':
-    result = num1 / num2;
-    alert(`Division of ${num1} and ${num2} is ${result}`);
-    break;
-
-    case '*':
-    result = num1 * num2;
-    alert(`Multiplication of ${num1} and ${num2} is ${result}`);
-    break;
-
-    default:
-    alert("Invalid Operator");
-}
+        default:
+        alert("Invalid Operator");
+    } */
     </script>
 </body>
 </html>
