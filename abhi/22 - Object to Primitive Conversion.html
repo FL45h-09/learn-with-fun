@@ -153,6 +153,54 @@
 
         /* Using binary plus, conversion converts object to primitive "2" (String). */
         /* Then while addition, it will concatinate the string. */
+
+
+        /* For more clarification */
+        let eg = {
+            age: 1,
+            age: 50,
+            toString(){
+                return this.age;
+            },
+            valueOf(){
+                return this.age;
+            }
+        }
+        console.log(eg); // It will return whole Object
+        console.log(typeof(eg)); // object
+        console.log(`${eg}`); // 50
+        console.log(typeof(`${eg}`)); // string
+        console.log(`${eg}2`); //502
+        console.log(typeof(`${eg}2`)); // string
+        console.log(`${eg+2}`); // 52
+        console.log(typeof(`${eg+2}`)); // string
+        console.log(+eg); // 50
+        console.log(typeof(+eg)); // number
+        console.log(eg + 5); // 55
+        console.log(typeof(eg + 5)); // number
+
+
+        let eg2 = {
+            age: 24,
+            toString(){
+                return age = 1;
+            },
+            valueOf(){
+                return age = 50;
+            }
+        }
+        console.log(eg2); // It will return whole Object
+        console.log(typeof(eg2)); // object
+        console.log(`${eg2}`); // 1
+        console.log(typeof(`${eg2}`)); // string
+        console.log(`${eg2}2`); //12
+        console.log(typeof(`${eg2}2`)); // string
+        console.log(`${eg2+2}`); // 52
+        console.log(typeof(`${eg2+2}`)); // string
+        console.log(+eg2); // 50
+        console.log(typeof(+eg2)); // number
+        console.log(eg2 + 5); // 55
+        console.log(typeof(eg2 + 5)); // number
     </script>
 </body>
 </html>
