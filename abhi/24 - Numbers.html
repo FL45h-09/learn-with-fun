@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Numbers
+
+        /* In Modern JavaScript, there are two types of numbers: */
+        /* 1. Regular numbers in JS are stored in 64-bit format, also known as "Double Precision Floating Point Numbers". */
+        /* 2. BigInt numbers represent integers of arbitrary length. They are sometimes needed because a regular integer number can't safely exceed (2^53 - 1) or be less than -(2^53 - 1). */
+
+
+        // Different Ways To Write Numbers:
+        let onebillion = 1000000000;
+        console.log(`One billion: ${onebillion}`);
+
+        /* We also use underscore "_" as the separator: */
+        let twobillion = 2_000_000_000;
+        console.log(`Two billion: ${twobillion}`);
+
+        /* Here the "underscore (_)" plays the role of the "Syntactic Sugar" (Syntactic sugar is syntax within a programming language that is designed to make things easier to read or to express.) */
+        /* It makes the number more readable. The JavaScript engine simply ignores "_" between digits, So in output it will show exactly same as "onbillion". */
+
+        /* To avoid long sequence of zeros, we will try to write numbers like "1bn" for a billion or "7.3bn" for 7 Billion 300 Million. The same is true for most large numbers. */
+        /* In JS, we can shorten the number by appending the letter "e" to it and specifying the zeros count. */
+
+        let num1 = 1e9; // 1 billion - 1 and 9 zeros
+        console.log(`Num1: ${num1}`);
+
+        /* In other words, "e" multiplies the number by 1 with the given zeros count. */
+        // 1e3 === 1*1000;  [e3 means *1000]
+        // 1.23e6 === 1.23 * 1000000;  [e6 means *1000000]
+
+        let num2 = 1.23e6;
+        console.log(`Num2: ${num2}`); // 1230000
+
+
+        /* To write very small number: 1 microsecond */
+        /* Just like before, using "e". If we had like to avoid writing zeroes explicitely, we could write as follows:  */
+        let ms = 1e-6;
+        console.log(`Microseconds: ${ms}`);
+
+        /* In other words, a negative number after "e" means a division by 1 with the given number of zeroes. */
+
+        // 1e-3 === 1/1000;  [0.001]
+        // 1.23e-6 === 1.23 / 1000000;  [0.00000123]
+
+        /* An example with bigger number */
+        // 1234e-2 === 1234 / 100;  [12.34]  (decimal point moves 2 times)
+
+
+
+        // Hex, binary and octal numbers
+
+        // Hexadecimal Numbers
+        /* "Hexadecimal Numbers" are widely used in JS to represent colors, encode characters, and for many other things. So there is a shorter way to write them: "0x" and then the number */
+        let hex1 = (0xff);
+        console.log(`Hex1: ${hex1}`); // 255
+
+        let hex2 = (0x3f);
+        console.log(`Hex2: ${hex2}`); // 63
+
+        let hex3 = (0x4A3);
+        console.log(`Hex3: ${hex3}`); // 1187
+
+        // Binary and Octal Numbers
+        /* "Binary and Octal Numbers" systems are rarely used, but also supported using the "0b" and "0o" prefixes: */
+
+        let bin1 = (0b11111111);
+        console.log(`Bin1: ${bin1}`); // 255
+
+        let bin2 = (0b01010101);
+        console.log(`Bin2: ${bin2}`); // 85
+
+        let oct1 = (0o377);
+        console.log(`Oct1: ${oct1}`); // 255
+
+        let oct2 = (0o62146);
+        console.log(`Oct2: ${oct2}`); // 25702
+
+        /* Addition */
+        console.log(`Addition: ${oct1+oct2}`); // 25957
+
+
+
+        // toString(base)
+        /* The method "num.toString(base)" returns a string representation of number in numeral system with the given base. */
+
+        let num3 = 255;
+        console.log(`Num3: ${num3.toString(16)}`); // ff
+        console.log(`Num3: ${num3.toString(2)}`); // 11111111
+        console.log(`Num3: ${num3.toString(8)}`); // 377
+
+        let num4 = 2563;
+        console.log(`Num4: ${num4.toString(16)}`); // a03
+        console.log(`Num4: ${num4.toString(2)}`); // 101000000011
+        console.log(`Num4: ${num4.toString(8)}`); // 5003
+
+        /* The base can vary from "2" to "36", by default it's "10". */
+        
+        /* Common use cases for these are: */
+        /* 1. "base=16" is used for hex colors, character encodings etc, digits can be (0 to 9) or (A to F). */
+        /* 2. "base=2" is mostly for debugging bitwise operations, digits can be "0" or "1". */
+        /* 3. "base=36" is the maximum, digits can be (0 to 9) or (A to Z), The whole latin alphabet is used to represent a number. */
+
+        let num5 = 123456;
+        console.log(`Num5: ${num5.toString(36)}`); // 2n9c
+
+        console.log(8530492..toString(36)); // 52u64
+        
+        /* The above method is called as "Two Dots to call a Method". */
+    </script>
+</body>
+</html>
