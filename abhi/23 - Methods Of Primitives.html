@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        
+        // Methods Of Primitives
+
+        /* key distinctions between primitives and objects. */
+
+        /* Primitive */
+        /* 1. It can only store one value. */
+        /* 2. There are 7 primitive types: string, number, bigint, boolean, symbol, null and undefined. */
+
+        /* An Object */
+        /* 1. Object is capable of storing multiple values as properties */
+        /* 2. Can be created with {}, for instance: {name: "John", age: 30}. There are other kinds of objects in JavaScript: functions, for example, are objects. */
+
+        /* One of the best thing about object is that we can store a function as one of its properties. For Example: */
+        let obj = {
+            name: "Abhi",
+            sayHi: function(){
+                console.log("Hi");
+            }
+        }
+        obj.sayHi(); // Hi
+
+
+
+        // A primitive as an object
+
+        /* There are many things one would want to do with a primitive, like a string or a number. It would be great to access them using methods. */
+        /* Primitives must be as fast and lightweight as possible. */
+        /* To access primitives, js allows access to methods and properties of strings, numbers, boolean and symbols. */
+        /* In order for that to work, a special "object wrapper" that provides the extra functionality is created, and then is destroyed */
+        /* The "Object wrappers" are difeerent for each primitive type. Thus, they provide different sets of methods */
+        /* For example, there exists a string method "str.toUpperCase()" that returns a capitalized "str". */
+        
+        let str = "Hello";
+        console.log(str.toUpperCase()); // HELLO
+
+        /* Here's what actually happens in "str.toUpperCase()": */
+        /* 1. The string "str" is a primitive. So in the moment of accessing its property, a special object is created that knows the value of the string, and has useful methods, like "toUpperCase()". */
+        /* 2. That method runs and returns a new string (shown by console.log). */
+        /* 3. The special object is destroyed, leaving the primitive "str" alone. */
+
+
+        /* A number has methods of its own, for instance, "toFixed(number)" rounds the number to the given precision: */
+
+        let n = 0.12345;
+        console.log(n.toFixed(3)); // 0.123
+
+
+        
+        // Note: "null" and "undefined" have no methods.
+    </script>
+</body>
+</html>
