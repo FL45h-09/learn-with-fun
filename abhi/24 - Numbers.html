@@ -113,8 +113,72 @@
         console.log(`Num5: ${num5.toString(36)}`); // 2n9c
 
         console.log(8530492..toString(36)); // 52u64
-        
+
         /* The above method is called as "Two Dots to call a Method". */
+        /* If we want to call method directly on a number, like "toString", then we need to place two dots after number. */
+
+        console.log((8530492).toString(36));
+        /* If we want to use single dot after number, then we nned to add a number in braces. */
+
+
+
+        // Rounding
+        /* There are several built-in functions for rounding: */
+
+        /* 1. Math.floor */
+        /* "Math.floor" round the number to the nearest previous number */
+        console.log(`Math.floor of 3.1 = ${Math.floor(3.1)}`); // 3
+        console.log(`Math.floor of -1.1 = ${Math.floor(-1.1)}`); // -2
+
+        /* 2. Math.ceil */
+        /* "Math.ceil" round the number to the nearest next number */
+        console.log(`Math.ceil of 3.1 = ${Math.ceil(3.1)}`); // 4
+        console.log(`Math.ceil of -1.1 = ${Math.ceil(-1.1)}`); // -1
+
+        /* 3. Math.round */
+        /* "Math.round" rounds the number to the nearest number */
+        console.log(`Math.round of 3.1 = ${Math.round(3.1)}`); // 3
+        console.log(`Math.round of 3.6 = ${Math.round(3.6)}`); // 4
+
+        /* 4. Math.trunc */
+        /* "Math.trunc" removes everything after decimal */
+        console.log(`Math.trunc of 3.1 = ${Math.trunc(3.1)}`); // 3
+        console.log(`Math.trunc of 3.6 = ${Math.trunc(3.6)}`); // 3
+        console.log(`Math.trunc of -1.1 = ${Math.trunc(-1.1)}`); // -1
+
+        /* Here's the table to summarize the difference between above 4 function: */
+
+        /*           Math.floor      Math.ceil       Math.round      Math.trunc     */
+        /*   3.1          3               4               3               3         */
+        /*   3.6          3               4               4               3         */
+        /*  -1.1         -2              -1              -1              -1         */
+        /*  -1.6         -2              -1              -2              -1         */   
+        
+        /* These functions cover all the possible ways to deal with the decimal part of number. */
+        console.log(`Round the number to the "n-th" digit`)
+
+        /* Here's the example for "round the number to the "n-th" digit after the decimal" */
+        /* For example: we have "1.2345" and want to round it to 2 digits, getting only "1.23" */
+        /* There are two ways to do: */
+        
+        /* 1. Multiply and Divide */
+        /* To round the number to the 2nd digit after the decimal, first we multiply number by 100, then we round the number using built-in function, then we divide the rounded number with 100. */
+        console.log(`Using Multiply and Divide = ${(Math.round(1.2345*100))/100}`) // 1.23
+
+        /* 2. toFixed(num) */
+        /* The method "toFixed(n)" rounds the number to "n" digits after the decimal point and returns a string representation of the result. */
+        /* This rounds the number to nearest number, similar to "Math.round". */
+        console.log(`Using toFixed = ${1.2345.toFixed(2)}`) // 1.23
+        console.log(`Using toFixed = ${1.2385.toFixed(2)}`) // 1.24
+        console.log(`Using toFixed = ${typeof(1.2355.toFixed(2))}`) // String
+
+        /* Note: The type of "toFixed()" is a String. */
+        /* If the decimal part is shorter than required, then zeroes are automatically appended to the end of number. */
+        console.log(`Using toFixed = ${1.23.toFixed(5)}`) // 1.23000
+
+
+
+        // Imprecise Calculations
     </script>
 </body>
 </html>
