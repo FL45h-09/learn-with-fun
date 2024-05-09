@@ -179,6 +179,81 @@
 
 
         // Imprecise Calculations
+
+        /* Internally, the number represented in 64 bit format. If a number is really huge, number overflow 64-bit storage and become a special numeric value "Infinity". */
+        console.log(`1e500 = ${1e500}`) // Infinity
+
+        console.log(`0.1 + 0.2 == 0.3 >> ${0.1 + 0.2 == 0.3}`); // false
+        /* Its because of: */
+        console.log(`0.1 + 0.2 = ${0.1 + 0.2}`) // 0.30000000000000004
+        /* But why does this happen? */
+        /* A number is stored in a memory in its binary form, a sequence of bits-ones and zeroes. */
+        /* Fractions like "0.1", "0.2" that look simple in the numeric decimal number system. */
+
+        /* Solution on this is: */
+        console.log(`Solution: ${(0.1 + 0.2).toFixed(2)}`); // 0.30
+
+
+
+        // Tests: "isFinite" and "isNaN"
+        /* "Infinity" is a special numeric value that is greater than anything. */
+        /* "NaN" represents an error. */
+
+        /* They belong to type "Number", but are not normal "Numbers" so there are special functions to check for them: */
+        
+        /* 1. isNaN(value) */
+        /* First it converts arguments to a number and then test it for being "NaN". */
+        
+        console.log(`isNaN()`)
+        console.log(isNaN("str")); // true
+        console.log(isNaN(NaN)); // true
+        console.log(isNaN(1)); // false
+
+        /* 2. isFinite(value) */
+        /* First it converts argument to a numner and then returns true or false, "true" if its a regular number, and "false" if its NaN/Infinity. */
+
+        console.log(`isFinite()`)
+        console.log(isFinite("str")); // false
+        console.log(isFinite(NaN)); // false
+        console.log(isFinite(1)); // true
+        console.log(isFinite("0.1")); // true
+
+        /* Sometimes "isFinite" is used to check whether the string value is a regular number. */
+
+
+        // Number.isNaN() & Number.isFinite()
+        /* These methods are the more "strict" versions of "isNaN & isFinite" functions. */
+        /* They do not autoconvert arguments to the number, but it checks whether if it belongs to the "number" type. */
+
+        /* 1. Number.isNaN() */
+        /* It retuns "true" if the argument belongs to "number" type and it is "NaN". */
+
+        console.log(Number.isNaN(NaN)); // true
+        console.log(Number.isNaN("str" / 2)); // true
+        console.log(Number.isNaN("str")); // false, because "str" belongs to the string type, not the number type.
+        console.log(isNaN("str")); // true, because isNaN converts string "str" into a number and gets NaN as a result of this conversion.
+
+        
+        /* 2. Number.isFinite() */
+        /* It retuns "true" if the argument belongs to "number" type and it is not "NaN/Infinity". */
+
+        console.log( Number.isFinite(123) ); // true
+        console.log( Number.isFinite(Infinity) ); // false
+        console.log( Number.isFinite(2 / 0) ); // false
+        console.log( Number.isFinite("123") ); // false, because "123" belongs to the string type, not the number type
+        console.log( isFinite("123") ); // true, because isFinite converts string "123" into a number 123
+
+        /* From the above examples, First "Number.isNaN() & Number.isFinite()" checks the argument is belongs to "number" type or not. If its not belongs to "number" type it returns "false", If its belongs to "number" type then it will go further. */
+
+
+
+        // parseInt and parseFloat
+        /* Numeric conversion using a "+" or "Number()" is strict. If a value is exactly not a number, it fails. */
+        console.log(`parseInt and parseFloat`);
+        console.log(+"100"); // 100
+        console.log(+"100px"); // NaN
+
+        
     </script>
 </body>
 </html>
