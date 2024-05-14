@@ -253,7 +253,81 @@
         console.log(+"100"); // 100
         console.log(+"100px"); // NaN
 
+        /* Sometimes we often have values in units like "100px" and "10pt" in css. Also the currency symbol goes after the amount, and would like to extract numeric value out of that */
+        /* In this situation, we can use "parseInt" and "parseFloat". */
+        /* These functions can read the number from a string until they can't. In case of error, the gathered number is returned. */
+        /* "parseInt" can returns an Integer, and "parseFloat" can returns a floating-point number. */
+
+        console.log(`100px: ${parseInt(`100px`)}`) // 100
+        console.log(`10.2pt: ${parseFloat(`10.2pt`)}`) // 10.2
+        console.log(`987.656: ${parseInt(`987.656`)}`) // 987
+        console.log(`a123: ${parseInt(`a123`)}`) // NaN
+        console.log(`$123: ${parseFloat(`$123`)}`) // NaN
+        console.log(`123.45.67: ${parseFloat(`123.45.67`)}`) // 123.45  [Note: The second point will stops the reading.]
+
+
+        // The Second Argument of "parseInt(str, radix)"
+        /* "parseInt()" has an optional second parameter, which specifies the base of numeral sysytem. */
+        /* So, "parseInt" can parse strings of hex numbers, binary numbers and etc. */
+        console.log(`487: ${parseInt("487", 16)}`); //1159
+        console.log(`487: ${parseInt("487", 36)}`); //5479
+
+        console.log(`487.3: ${parseFloat("487.3", 16)}`); // 487.3
+        console.log(`487.3: ${parseFloat("487.3", 36)}`); // 487.3
+
+        /* There's no optional second parameter in "parseFloat()". */
+
+
+
+        // Other Math Functions
         
+        /* 1. Math.random() */
+        /* It returns random number between 0 to 1 (not including 1). */
+        console.log(`Math.random(): ${Math.random()}`); // 0.12345678901234567
+
+        /* 2. Math.max(a, b, c...) & Math.min(a, b, c...) */
+        /* It retuns greatest and smallest number from the arbitary number of arguments */
+        console.log(`Math.max(): ${Math.max(3, 5, -10, 0, 1, 22)}`); // 22 
+        console.log(`Math.min(): ${Math.min(3, 5, -10, 0, 1, 22)}`); // -10
+
+        /* 3. Math.pow(x, y) */
+        /* It returns "x" to the power of "y". */
+        console.log(`Math.pow(2, 3): ${Math.pow(2, 3)}`); // 8
+
+        /* 4. Math.sqrt() */
+        /* It returns square root of a number. */
+        console.log(`Math.sqrt(9): ${Math.sqrt(9)}`); // 3
+
+        /* 5. Math.abs() */
+        /* It returns absolute (positive) value of a number. */
+        console.log(`Math.abs(-10): ${Math.abs(-10)}`); // 10
+
+        /* 6. Math.sin() */
+        /* It returns sine value between -1 and 1 of the angle. */
+        /* If you want to use degrees instead of radians, you have to convert degrees to radians using further formula: */
+        /* Angle in radians = Angle in degrees x PI / 180 */
+        console.log(`Math.sin(): ${Math.sin(90)}`); // 0.8939966636005579
+        console.log(`Math.sin(): ${Math.sin((90*Math.PI)/180)}`); // 1
+
+        /* 7. Math.cos() */
+        /* It returns cosine value between -1 and 1 of the angle. */
+        /* If you want to use degrees instead of radians, you have to convert degrees to radians using further formula: */
+        /* Angle in radians = Angle in degrees x PI / 180 */
+        console.log(`Math.cos(): ${Math.cos(30)}`); // 0.15425144988758405
+        console.log(`Math.cos(): ${Math.cos((30*Math.PI)/180)}`); // 0.8660254037844387
+
+        /* 8. Math.log() */
+        /* It returns the natural logarithm of number. */
+        console.log(`Math.log(10): ${Math.log(10)}`); // 2.302585092994046
+        console.log(`Math.log(8.5): ${Math.log(8.5)}`); // 2.1400661634962708
+
+        /* 9. Math.log2() */
+        console.log(`Math.log2(10): ${Math.log2(10)}`); // 3.321928094887362
+        console.log(`Math.log2(8.5): ${Math.log2(8.5)}`); // 3.0874628412503395
+
+        /* 10. Math.log10() */
+        console.log(`Math.log10(10): ${Math.log10(10)}`); // 1
+        console.log(`Math.log10(8.5): ${Math.log10(8.5)}`); // 0.9294189257142927
     </script>
 </body>
 </html>
