@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Strings
+
+        /* In JS, the textual data is stored as "Strings". */
+        /* We can store "string" using Single Quotes (''), Double Quotes ("") and Backticks (``) */
+        console.log('Single quote');
+        console.log("Double quote");
+        console.log(`Backtick`);
+
+
+        // Special Characters
+        /* Multiline string is possible with single and double quotes, by using "Newline Character", written as "\n". */
+        /* "\n" denotes a line break. */
+        
+        let guestList = "Guest:\n * John\n *Pete"
+        console.log(guestList);
+
+        let str1 = "Hello\nWorld";
+        let str2 = `Hello
+World`;
+        console.log(str1==str2); // true
+
+        /* There are other, less common special character. */
+        
+        /*   Name	        Special Character
+        Single quote	            \'
+        Double quote	            \"
+        Ampersand	                \&
+        Newline	                    \n
+        Tab	                        \t
+        Backslash	                \\
+        Carries return	            \r
+        Backspace	                \b
+        Form feed	                \f
+        Vertical tab	            \v          */
+
+        console.log("Single quote: Hello\' world");
+        console.log("Double quote: Hello\" world");
+        console.log("Ampersand: Hello \& world");
+        console.log("Tab: Hello\t world");
+        console.log("Backslash: Hello\\ world");
+        console.log("Carries return: Hello\r world");
+        console.log("Backspace: Hello\b world");
+        console.log("Form feed: Hello\f world");
+        console.log("Vertical tab: Hello\v world");
+
+        /* \b, \f, \v => Backspace, Form Feed, Vertical Tab – mentioned for completeness, coming from old times, not used nowadays (you can forget them right now). */
+
+
+        // String Length
+        /* The ".length" property returns length of string. */
+        console.log("String\t length: ".length);
+
+        /* Note: "length" is a property. "str.length" is a numeric property, not a function. So There is no need to add parenthesis after it. */
+
+
+
+        // Accessing Character
+        /* To get a character from string at position, (The first character starts from zeroth position.) */
+        /* 1. use square brackets "[pos no.]". */
+        /* 2. call the method "str.at(pos no.)". */
+        /* 3. use the ".charAt()" method. */
+
+        let str = "String";
+        console.log(`Using [1]: ${str[1]}`); // t
+        console.log(`Using [-1]: ${str[-1]}`); // undefined
+        console.log(`Using [str.length-1]: ${str[str.length-1]}`); // g
+
+        console.log(`Using .at(2): ${str.at(2)}`); // r
+        console.log(`Using .at(-2): ${str.at(-2)}`); // n
+        console.log(`Using .at(str.length-2): ${str.at(str.length-2)}`); // n
+
+        console.log(`Using .charAt(3): ${str.charAt(3)}`); // i
+        console.log(`Using .charAt(-3): ${str.charAt(-3)}`); // (blank)
+        console.log(`Using .charAt(str.length-3): ${str.charAt(str.length-3)}`); // i
+
+        /* As we can see, Using ".at()" method with negative position, it will start counted from end of the string. */
+    </script>
+</body>
+</html>
