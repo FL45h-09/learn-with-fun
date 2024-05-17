@@ -166,7 +166,106 @@ World`;
 
 
         // Getting a Substring
+        /* There are 3 methods in JavaScript to get a substring: "substring", "substr" and "slice". */
+
+        /* 1. str.slice(start, end) */
+        /* This method, returns the part of the string from "start" to "end" (But not including end). */
+        let demo = "Lorem is a default para.";
+        console.log(`Slice: ${demo.slice(2, 5)}`); // rem
+        console.log(`Slice: ${demo.slice(2, 10)}`); // rem is a
+        console.log(`Slice: ${demo.slice(10, 2)}`); // (blank) 
+        /* "Start" must be less than "End". */
+
+        /* If there is no second argument, then "slice" goes till end of the string. */
+        console.log(`Slice: ${demo.slice(5)}`); //  is a default para.
+
+        /* If we entered negative values for "start/end" are also possible. It means the position counted from the end of the string. */
+        console.log(`Slice: ${demo.slice(-4, -1)}`) // ara
+
+
+        /* 2. str.substring(start, end) */
+        /* This method also, returns the part of the string from "start" to "end" (But not including end). */
+        /* This method is almost same as the "slice" method, but it allows "start" to be greater than "end" (In this case, it simply swaps "start" and "end" values.) */
+        console.log(`substring: ${demo.substring(2, 5)}`) // rem
+        console.log(`substring: ${demo.substring(5, 2)}`) // rem (Here this method will swap the "start" and "end" values.)
+
+        /* This method does not support negative "start" and "end" values, they are treated as "zero (0)". */
+        console.log(`substring: ${demo.substring(-2, -5)}`) // (blank)
+
+
+        /* 3. str.substr(start, length) */
+        /* This method, returns the part of the string from "start", with the given "length". This one allows us to specify the "length" instead of the ending position. */
+        console.log(`substr: ${demo.substr(2, 5)}`) // rem i      => Note: from the 2nd position get 4 characters.
+
+        /* The first argument may be negative, to count from the end. */
+        console.log(`substr: ${demo.substr(-8, 6)}`) // lt par      => Note: from the 8th position from end and get 6 characters.
+
+
+        //        Method	                        Selects…	                             Negatives
+        //    slice(start, end)	        from start to end (not including end)	        allows negatives
+        //    substring(start, end)	    between start and end (not including end)	    negative values mean 0
+        //    substr(start, length)	    from start get length characters	            allows negative start
+
+
+
+        // Comparing Strings
+        /* As we know, strings are compared character-by-character. */
+        /* Although, there are some dissimilarities. */
+        /* Characters are compared by their numeric code. The greater code means that the character is greater */
+        /* 1. All lowercase letters go after upperase letters because their codes are greater. */
+        /* 2. Some letters like with diacritical marks (Ö), stand apart from main alphabet. Here, its code greater than anything from "a" to "z". */
+
+        /* 1. A "lowercase" letter is always greater than "uppercase". */
+        console.log(`Comparing string: a > A => ` + ("a" > "A")); // true
+
+        /* 2. Letters with diacritical marks are "out of order" */
+        console.log(`Comparing string: Österreich > Zealand => ` + ('Österreich' > 'Zealand')); // true
+        console.log(`Comparing string: Österreich > zealand => ` + ('Österreich' > 'zealand')); // true
+
+        /* To understand this, we should be aware that strings in javascript are encoded using "UTF-16", It means each character has a corresponding numeric code. */
         
+
+        // str.codePointAt(pos)
+        /* This method returns the decimal number, representing the code for the character at position "pos". */
+        console.log(`codePointAt: Ö => ${"Ö".codePointAt(0)}`) // 214
+        console.log(`codePointAt: Z => ${"Z".codePointAt(0)}`) // 90
+        console.log(`codePointAt: z => ${"z".codePointAt(0)}`) // 112
+
+
+        // String.fromCodePoint(numeric code)
+        /* Returns a character by its numeric code. */
+        console.log(`fromCodePoint: ${String.fromCodePoint(214)}`) // Ö
+        console.log(`fromCodePoint: ${String.fromCodePoint(90)}`) // Z
+        console.log(`fromCodePoint: ${String.fromCodePoint(112)}`) // z
+
+        /* "codePointAt" method will return character position in "decimal number" */
+        /* "String.fromCodePoint(numeric code)" method will return "character" which is present at that "numeric code". */
+
+
+        /* Now let's see the characters with codes "65 to 220" by making string of them. */
+        let characters = "";
+        for(let i=65; i<220; i++){
+            characters += String.fromCodePoint(i);
+        }
+        console.log(`Characters: ${characters}`); // ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛ
+
+
+
+        // Correct Comparison
+        /* The "right" algorithm to do string comparisons is more complex than it may seem, because alphabets are different for different languages. */
+        /* So, the browser needs to know the language to compare. */
+        /* Modern browsers supports, internationalization standard. Which provides a special method to compare strings in different languages, following their rules. */
+        /* The call "str.localeCompare(str2)" returns an integer indicating whether "str" is less, equal or greater than "str2" according to the language rules: */
+
+        /* str.localeCompare(str2) */
+        console.log(`localeCompare: ${'Österreich'.localeCompare('Zealand')}`); // -1
+
+        /* ".localeCompare() rules:" */
+        /* 1. Returns Negative number if "str1" is less than "str2". */
+        /* 2. Returns Positive number if "str1" is greater than "str2". */
+        /* 3. Returns Zero (0) if both the strings are equivalent. */
+
+        /* This method also has two arguments, which allows us to specify the language and setup additional rules like case sensitivity. Or should "a" and "á" be treated as the same etc. */
     </script>
 </body>
 </html>
