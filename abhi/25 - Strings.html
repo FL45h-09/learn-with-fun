@@ -259,13 +259,115 @@ World`;
 
         /* str.localeCompare(str2) */
         console.log(`localeCompare: ${'Österreich'.localeCompare('Zealand')}`); // -1
+        console.log(`localeCompare: ${'Ö'.localeCompare('O')}`); // 1
+        console.log(`localeCompare: ${'Ö'.localeCompare('o')}`); // 1
+        console.log(`localeCompare: ${'o'.localeCompare('O')}`); // -1
+        console.log(`localeCompare: ${'á'.localeCompare('a')}`); // 1
+        console.log(`localeCompare: ${'á'.localeCompare('A')}`); // 1
+        console.log(`localeCompare: ${'á'.localeCompare('á')}`); // 0
+        /* Noe: Here "Ö" and "O", "á" and "a" will be treated as same. */
+        /* In my opinion, the numeric value for the diacritical marks characters "Ö", are same as "Uppercase" and "Lowecase" characters. */
 
         /* ".localeCompare() rules:" */
         /* 1. Returns Negative number if "str1" is less than "str2". */
         /* 2. Returns Positive number if "str1" is greater than "str2". */
         /* 3. Returns Zero (0) if both the strings are equivalent. */
 
-        /* This method also has two arguments, which allows us to specify the language and setup additional rules like case sensitivity. Or should "a" and "á" be treated as the same etc. */
+        /* This method also has two arguments, which allows us to specify the language and setup additional rules like case sensitivity. */
+
+
+
+        // Other String Methods
+        /* 1. str.trim() */
+        /* The "trim()" method removes whitespace from both sides of a string. */
+        let trimText = "       Hello, World!       ";
+        console.log(trimText); //       Hello, World!       
+        console.log(trimText.trim()); // Hello, World!
+
+        
+        /* 2. str.trimStart() */
+        /* The "trimStart()" method works like "trim()", but removes whitespace only from the start of a string. */
+        console.log(trimText.trimStart()); // Hello, World!        
+
+
+        /* 3. str.trimEnd() */
+        /* The "trimEnd()" method works like "trim()", but removes whitespace only from the end of a string. */
+        console.log(trimText.trimEnd()); //        Hello, World!
+
+
+        /* 4. str.padStart() */
+        /* The "padStart()" method pads [combine] the string from start. */
+        /* It pads the string with another string (multiple times) until it reaches a given length. */
+        let padText = "str";
+        let padNum = 5;
+        console.log(padText.padStart(5, "0")); // 00str
+        console.log(padText.padStart(2, "0")); // str
+        padNum = padNum.toString();
+        console.log(padNum.padStart(5, "0"));
+
+        
+        /* 5. str.padEnd() */
+        /* The "padEnd()" method pads [combine] a string from the end. */
+        /* It pads a string with another string (multiple times) until it reaches a given length. */
+        console.log(padText.padEnd(5, "0")); // str00
+        console.log(padText.padEnd(2, "0")); // str
+        padNum = padNum.toString();
+        console.log(padNum.padEnd(5, "0"));
+
+        /* Here the first parameter in ".padStart()" and ".padEnd" is defines the string length. Which means it is the length of the final string has been padded. */
+        /* If the value is less than the original string length, then the original string is returned. */
+        /* Also here, if we wants to pad integer value, first we have to convert "number" to "string". Otherwise it will throw an error. */
+
+
+        /* 6. str.repeat() */
+        /* The "repeat()" method returns a string with a number (which passes in parameter) of copies of string. This method returns a new String. It does not change the original string. */
+        let repeatStr = "Str/";
+        console.log(repeatStr.repeat(4)); // Str/Str/Str/Str/
+
+
+        /* 7. str.replace() */
+        /* The "replace()" method replaces a specified value "string" or "substring" with another value of "string" or "substring". */
+        /* By default, "replace()" method replaces only the first match. */
+        /* Alse by default, "replace()" method is case sensitive. Writing "LIT" (with Uppercase) will not work. It will return original string. */
+        let replaceStr = "Lorem ipsum dolor sit amet sit,"
+        console.log(replaceStr.replace("sit", "lit")); // Lorem ipsum dolor lit amet sit,
+        console.log(replaceStr.replace("SIT", "lit")); // Lorem ipsum dolor sit amet sit,
+        
+        /* To replace case insensitive, use a "regular expression" with an "/str/i" flag (insensitive). */
+        console.log(replaceStr.replace(/SIT/i, "lit")); // Lorem ipsum dolor lit amet sit,
+
+        /* To replace all matches, use a regular expression with a "/str/g" flag (global match). */
+        console.log(replaceStr.replace(/sit/g, "lit")); // Lorem ipsum dolor lit amet lit,
+        console.log(replaceStr.replace(/SIT/ig, "lit")); // Lorem ipsum dolor lit amet lit,
+
+
+        /* 7. str.replaceAll() */
+        /* The "replaceAll()" method replaces all the specified value "string" or "substring" with another value of "string" or "substring" */
+        console.log(replaceStr.replaceAll("sit", "lit")); // Lorem ipsum dolor lit amet lit,
+
+
+        /* 8. str.split() */
+        /* A string can be converted to an array with the "split()" method: */
+        let splitText = "Hello, World!";
+        console.log(splitText.split(",")); // Split on commas
+        console.log(splitText.split(" ")); // Split on spaces
+        console.log(splitText.split("")); // split each letter
+
+
+        /* 9. str.search() */
+        /* The "search()" method searches a "string" or "substring" and returns the position of the match. */
+        let demoStr = "Lorem ipsum dolor sit amet sit,";
+        console.log(demoStr.search("sit")); //18
+
+        /* 10. str.match() */
+        /* The "match()" method returns an array containing the results of matching a string against a string. */
+        console.log(demoStr.match("sit")); // returns array with 1 result of index 18
+        console.log(demoStr.match(/sit/g)); // returns array with all results
+
+        /* 11. str.matchAll() */
+        /* The "matchAll()" method returns an iterator of results after matching a string against a regualar expression passed as argument. */
+        let matchallStr = demoStr.matchAll("sit");
+        console.log(Array.from(matchallStr));
     </script>
 </body>
 </html>
