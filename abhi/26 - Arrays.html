@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // Arrays
+
+        /* Object allows us to store keyed collection of values. But sometimess we need to store collection of data in "Ordered collection" or in "list format". */
+        /* It is not convinient to use object here, because object doesn't provide any methods to manage the order of elements. We can't insert new property "between" the existing ones. */
+        /* There exists a special data structure named "Array", to store ordered collections. */
+
+
+        // Declaration
+        /* There are two syntaxes for creating an empty Array */
+        let arr1 = new Array();
+        let arr2 = [];
+
+        let fruits1 = new Array("Apple", "Mango", "Kiwi");
+        console.log(`fruits1: ${fruits1}`);
+        let fruits2 = ["Banana", "Lichi", "Grapes"];
+        console.log(`fruits2: ${fruits2}`);
+
+
+        /* Array elements are numbered [indexed], starting with zero. */
+        /* We can get element by its number [index] in square brackets. */
+
+        console.log(`fruits1[0]: ${fruits1[0]}`); // Apple
+        console.log(`fruits1[1]: ${fruits1[1]}`); // Mango
+        console.log(`fruits1[2]: ${fruits1[2]}`); // Kiwi
+        console.log(`fruits1[3]: ${fruits1[3]}`); // Undefined
+
+        /* 1. Replace */
+        /* We can replace an element: */
+        fruits1[0] = "Peach";
+        console.log(`Replace: ${fruits1}`); // Peach, Mango, Kiwi
+
+        
+        /* 2. Add */
+        /* Also, we can add new element to an array: */
+        fruits1[3] = "Lemon";
+        console.log(`Add: ${fruits1}`); // Peach, Mango, Kiwi, Lemon
+
+
+        /* 3. arr.length */
+        /* We can get total count of elements in the array using "length" */
+        console.log(`Length: ${fruits1.length}`); // 4
+
+
+        /* 4. An array can store elements of any type. */
+        let arr = ["Apple", {name: "Abhi"}, true, function(){ alert("Working...")}];
+
+        console.log(`arr[0]: ${arr[0]}`); // Apple
+
+        console.log(`arr[1]: ${arr[1]}`); // [object, Object]
+        console.log(`arr[1]: ${arr[1].name}`); // Abhi
+        
+        console.log(`arr[2]: ${arr[2]}`); // true
+
+        console.log(`arr[3]: ${arr[3]}`) // function(){ alert("Working...")}
+        console.log(`arr[3]: ${arr[3]()}`); // alert("Working...")
+
+
+
+        // Get Last Elements With "at"
+        /* If we want the last element of the array. We can't use negetive index directly. It will throw "undefined". */
+
+        console.log(`Last element: ${fruits1[fruits1.length-1]}`); // Lemon
+        console.log(`Last element: ${fruits1[-1]}`); // Undefined
+
+        /* For shorter syntax, we can use ".at()". */
+        console.log(`using '.at(-1)': ${fruits1.at(-1)}`); // Lemon
+        console.log(`using '.at(1)': ${fruits1.at(1)}`); // Mango
+
+        /* In other words, arr.at(i) */
+        /* 1. Is exactly same as "arr[i]", if "i >= 0". */
+        /* 2. For negative values of "i", it starts from the end of an array. */
+
+
+
+        // Methods => pop/push, shift/unshift
+        
+        /* shift: Remove an element from the beginning of an array. */
+        /* unshift: Add an element to the beginning of an array. */
+
+        /* pop: Remove an element from end of an array. */
+        /* push: Add an element to the end of an array. */
+
+        let num = ["A", "B", "C", "D", "E", "F"];
+        console.log(`shift: ${num.shift()}, Arr: ${num}`); // shift: A, Arr: B,C,D,E,F
+        console.log(`unshift: ${num.unshift("A")}, Arr: ${num}`); // unshift: 6, Arr: A,B,C,D,E,F
+        console.log(`pop: ${num.pop()}, Arr: ${num}`); // pop: F, Arr: A,B,C,D,E
+        console.log(`push: ${num.push("F")}, Arr: ${num}`); // push: 6, Arr: A,B,C,D,E,F
+
+        /* "shift" & "pop" returns the element which is removed. */
+        /* "unshift" & "push" returns the new length of the array. */
+
+
+
+        // Internals
+    </script>
+</body>
+</html>
