@@ -103,6 +103,105 @@
 
 
         // Internals
+
+        let demo1 = [];
+        demo1[99] = 5;
+        demo1.name = "demo1";
+        console.log(`Internals: ${demo1[99]}`); // 5
+        console.log(`Internals: ${demo1[98]}`); // undefined
+        console.log(`Internals: ${demo1.name}`); // demo1
+
+
+
+        // Loops
+        /* One of the oldest ways to cycle array items is the "for" loop over indexes: */
+        for(let i=0; i<num.length; i++){
+            console.log(`for loop: ${num[i]}`);
+        }
+
+        /* We can also use another form of loops */
+        for(let key in num){
+            console.log(`for..in loop: ${num[key]}`);
+        }
+
+        for(let key of num){
+            console.log(`for..of loop: ${key}`);
+        }
+
+        /* The "for..of" doesn’t give access to the number of the current element, just its value, but in most cases that’s enough. And it’s shorter. */
+
+
+
+        // length
+        /* The "length" property automatically updates when we modify the array. */
+        /* To be precise, it is actually not the count of values in the array, but the greatest numeric index plus one. */
+        
+        let demo2 = [];
+        demo2[99] = 1;
+        console.log(`length: ${demo2.length}`); //100
+
+        /* The above example is only for practice. */
+
+        /* Another interesting thing about the "length" property is that it’s writable. */
+        /* If we increase it manually, nothing interesting happens. But if we decrease it, the array is truncated. The process is irreversible, here’s the example: */
+
+        let nums = [1,2,3,4,5];
+        nums.length = 3;
+        console.log(`nums.length = 3 => ${nums}`); // 1,2,3
+        nums.length = 4;
+        console.log(`nums.length = 4 => ${nums}`); // 1,2,3,
+        console.log(`nums.length[3] = 4 => ${nums[3]}`); // undefined  [Here, the third index is undefied beacause we already truncated the "nums" array width length 3.]
+
+        /* The simplest way to clear the array is "arr.length=0" */
+        nums.length = 0;
+        console.log(`nums.length = 0 => ${nums}`) // Empty
+        console.log(`nums.length[0] = 0 => ${nums[0]}`) // undefined
+
+
+
+        // new Array()
+        /* There is one more syntax to create an array: */
+        let newArray1 = new Array(1,2,3,4,5);
+        console.log(`newArray1 = ${newArray1}`) // 1,2,3,4,5
+
+
+        /* If "new Array()" is called with a single argument which is a number, then it creates an array without items, but the single argument becomes the length of that array. */
+        let newArray2 = new Array(4);
+        console.log(`newArray2 = ${newArray2}`) // ,,,
+        console.log(`newArray2.length = ${newArray2.length}`) // 4
+
+        /* To avaoid this, use square brackets. */
+
+
+
+        // Multidimensional Arrays
+        /* Arrays can have items that are also arrays. We can use it for multidimensional arrays, for example to store matrices: */
+        let matrix = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ];
+        console.log(`matrix[2][2]: ${matrix[2][2]}`) // 9
+
+
+
+        // toString
+        /* Arrays have their own implementation of "toString" method that returns a comma-separated list of elements. */
+        let newArr = [1,2,3,4,5];
+
+        console.log(`toString: ${String(newArr)}`);
+        console.log(`toString: ${typeof(String(newArr[0]))}`); // string
+
+        /* Another method */
+        console.log([]+1); // 1
+        console.log([]+2); // 2
+        console.log([1]+1); // 11
+        console.log([1,2]+1); // 1,21
+        console.log(typeof([1,2]+1)); // string
+
+
+
+        // Don’t compare arrays with "=="
     </script>
 </body>
-</html>
+</html> 
