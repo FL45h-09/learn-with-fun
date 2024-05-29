@@ -1,0 +1,35 @@
+<script>
+    'use strict';
+    /* #1. Symbols */
+        // A “symbol” represents a unique identifier.
+        // id is a symbol with the description "id"
+        let id =  Symbol("pink");
+        let anotherid =  Symbol("pink");
+        alert(id == anotherid); //false, because “symbol” are guaranteed to be unique.
+        
+        //alert(id); //TypeError: Cannot convert a Symbol value to a string. 
+        // Therefore, we need to convert it into toString to get result of id
+        alert(id.toString()); //Symbol(pink)
+
+        // Or get symbol.description property to show the description only:
+        alert(id.description); //pink
+
+    /* #2. Hidden properties */
+        // Symbols allow us to create “hidden” properties of an object, that no other part of code can accidentally access or overwrite.
+        let user = {name :  "jack"}; //belongs to another code
+        let ids = Symbol("id");
+        user[ids] = 1;
+        alert(user[ids]); //1 // we can access the data using the symbol as the key
+
+        // There will be no confict when we use Symbol type, because they are always different. But when we use string id instead of symbol then conflict will occure.
+        let emp = {name : 'john'};
+        emp.id = "our id value";
+        emp.id = "their id value";
+        alert(emp.id); //their id value // overwritten by another script
+
+        
+
+
+
+
+</script>
