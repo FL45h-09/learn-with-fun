@@ -261,6 +261,33 @@
             return a-b;
         }
         console.log(`sort using function "numCompare2": ${number.sort(numCompare2)}`); // 1,2,5,11,34,55
+
+
+        /* Sorting of string using "localeCompare" */
+        /* As we know, "localeCompare" compares letter by thier codes. */
+        /* For many alphabets, it’s better to use str.localeCompare method to correctly sort letters, such as Ö. */
+
+        let countries = ['Österreich', 'Andorra', 'Vietnam'];
+        console.log(`Sort using localeCompare: ${countries.sort()}`); // Andorra,Vietnam,Österreich
+        console.log(`Sort using localeCompare: ${countries.sort((a,b) => a > b ? 1 : -1)}`); // Andorra,Vietnam,Österreich
+        console.log(`Sort using localeCompare: ${countries.sort((a, b) => a.localeCompare(b))}`); // Andorra,Österreich,Vietnam
+
+
+
+        // Reverse
+        /* The method "arr.reverse" reverses the order of elements in array. */
+
+        let rArr1 = [1,2,3,4,5];
+        console.log(rArr1.reverse()); // 5,4,3,2,1
+        let rArr2 = [34,1,12,3,4,5];
+        console.log(rArr2.reverse()); // 5,4,3,12,1,34
+
+        /* This method will return just the reverse of given array, without sorting the array. */
+
+
+
+        // split and join
+        
     </script>
 </body>
 </html>
