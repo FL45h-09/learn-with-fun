@@ -25,15 +25,51 @@
     // }
     // console.log(revstr); //ikniP
 
-    console.log("5" + 2); // 52
-    console.log("5" - 3); // 2
-    console.log("5" * 3); // 15
-    console.log("5" / 3); // 1.66
-    console.log("5" % 3); // 2
+    // console.log("5" + 2); // 52
+    // console.log("5" - 3); // 2
+    // console.log("5" * 3); // 15
+    // console.log("5" / 3); // 1.66
+    // console.log("5" % 3); // 2
 
-    let user = { name : 'pinki', age : 24};
-    Object.freeze(user);
-    user.name = "john";
-    console.log(user); //TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+    // let user = { name : 'pinki', age : 24};
+    // Object.freeze(user);
+    // user.name = "john";
+    // console.log(user); //TypeError: Cannot assign to read only property 'name' of object '#<Object>'
+
+    /* map() */
+    let map = new Map();
+    map.set('1', 'str1');
+    map.set(1, 'num1');
+    map.set(true, 'boolean');
+
+    alert(map.get('1')); //str1
+    alert(map.get(1)); //num1
+    alert(map.get(true)); //boolean
+
+    // map can also use objects as a key
+    let name = {name : "Jack"};
+    let visitcount = new Map();
+    visitcount.set(name, "pink");
+    alert(visitcount.get(name)); // pink
+
+    /* iteration over map (there are 3 methods) 
+        1. map.keys()
+        2. map.values()
+        3. map.entries()
+    */
+
+    let marketlists = new Map([
+        ['Carrot', 500], ['capsicum', 1000], ['onion', 100]
+    ]);
+    for(let vegkeys of marketlists.keys()){
+        console.log(vegkeys); // Carrot, capsicum, onion 
+    }
+    for(let vegvalue of marketlists.values()){
+        console.log(vegvalue); // 500, 1000, 100
+    } 
+    for(let vegentries of marketlists){
+        console.log(vegentries); //['Carrot', 500], ['capsicum', 1000], ['onion', 100]
+    }
+
 
 </script>
