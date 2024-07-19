@@ -66,4 +66,13 @@
     console.log(Object.is(NaN, NaN)); //true
     console.log(Object.is(0, -0)); //false
 
+    // parseInt and parseFloat (They “read” a number from a string)
+    console.log(parseInt('100px')); //100
+    console.log(parseInt('100.223px')); //100 (only the integer part is returned)
+    console.log(parseFloat('10.23px')); //10.23
+    console.log(parseInt('age25')); //NaN (the first symbol stops the process)
+
+    // Other math functions
+    console.log(Math.random()); // 0.3004036223758797 (always returns random number)
+
 </script>
