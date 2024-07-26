@@ -1,0 +1,67 @@
+<script>
+    'use strict';
+    
+    /* backticks(` `) one of the best use of backtick is they allow a string multiple lines */
+        let guestlists = `Guests:
+        John
+        Jack
+        Sam
+        Elena`;
+        console.log(guestlists);  // a lists of guests in multiple lines
+
+    /*<!-- ? Special characters (possible to create multiline strings using single and double qoutes by using newline character i.e '\n') */
+        let guestlists1 = "Guests: \n John \n Jack \n Sam \n Elena"; 
+        console.log(guestlists1); // a lists of guests in multiple lines
+    
+    /*<!-- ? #1 string length (The length property has the string length:) */ 
+        let day = "Monday";
+        console.log(day.length); //6
+
+    /*<!-- ? #2 Accessing characters (to get character position in string use [pos] & The first character starts from the zero 0 position:) */ 
+        let month = "December";
+        console.log(month.length); // 8
+        console.log(month[5]); // b
+        console.log(month[0]); // D
+        console.log(month.at(0)); // D
+        console.log(month[month.length - 1]); // r (to get last character)
+        console.log(month.at(-1)); // r (to get last character)
+        console.log(month[month.length - 2]); // e (to get the character before last one)
+        console.log(month.at(-2)); // e (to get the character before last one)
+
+     //<!-- ? We can also iterate over characters using for..of:
+        for (let char of month){
+            document.write(char + '\n'); //D e c e m b e r
+        }
+    
+    /*<!-- ? #3 Strings are immutable (Strings can’t be changed in JavaScript. It is impossible to change a character.) */
+        let empname = "Jack";
+        /*  empname[0] = 'k'; // error
+        console.log('\n');
+        console.log(empname[0]); // TypeError: Cannot assign to read only property '0' of string 'Jack' */
+
+        // to replace any character from string you need create whole new string 
+        empname = 'k' + empname[1] + empname[2] + empname[3];
+        console.log(empname); // kack
+        console.log('\n');
+
+
+    /*<!-- ? #4 Changing the case */
+        let strcasename =  "franchise";
+        let strtrim = "  occupation       ";
+        console.log(strcasename.toLowerCase()); //franchise
+        console.log(strcasename.toUpperCase()); //FRANCHISE
+        console.log(strcasename.length); //9
+        console.log(strcasename.charAt(3)); //n
+        console.log(strcasename.charCodeAt(0)); //102
+        console.log(strcasename.at(5)); //h
+        console.log(strcasename[strcasename.length - 3]); //i
+        console.log(strcasename.slice(4)); //chise
+        console.log(strcasename.slice(1, 5)); //ranc
+        console.log(strcasename.substring(2, 6)); //anch
+        console.log(strcasename.substr(2, 4)); //anch
+        console.log(strcasename.concat(" business")); //franchise business
+        console.log(strtrim.trim()); // removes white space (occupation)
+        console.log(strtrim.trimStart()); // removes white space only from the start of a string (occupation       )
+        console.log(strtrim.trimEnd()); // removes white space only form the end of a string (  occupation)
+
+</script>
