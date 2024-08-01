@@ -9,15 +9,15 @@
         Elena`;
         console.log(guestlists);  // a lists of guests in multiple lines
 
-    /*<!-- ? Special characters (possible to create multiline strings using single and double qoutes by using newline character i.e '\n') */
+    /* Special characters (possible to create multiline strings using single and double qoutes by using newline character i.e '\n') */
         let guestlists1 = "Guests: \n John \n Jack \n Sam \n Elena"; 
         console.log(guestlists1); // a lists of guests in multiple lines
     
-    /*<!-- ? #1 string length (The length property has the string length:) */ 
+    /* #1 string length (The length property has the string length:) */ 
         let day = "Monday";
         console.log(day.length); //6
 
-    /*<!-- ? #2 Accessing characters (to get character position in string use [pos] & The first character starts from the zero 0 position:) */ 
+    /* #2 Accessing characters (to get character position in string use [pos] & The first character starts from the zero 0 position:) */ 
         let month = "December";
         console.log(month.length); // 8
         console.log(month[5]); // b
@@ -28,12 +28,12 @@
         console.log(month[month.length - 2]); // e (to get the character before last one)
         console.log(month.at(-2)); // e (to get the character before last one)
 
-     //<!-- ? We can also iterate over characters using for..of:
+     // We can also iterate over characters using for..of:
         for (let char of month){
             document.write(char + '\n'); //D e c e m b e r
         }
     
-    /*<!-- ? #3 Strings are immutable (Strings can’t be changed in JavaScript. It is impossible to change a character.) */
+    /* #3 Strings are immutable (Strings can’t be changed in JavaScript. It is impossible to change a character.) */
         let empname = "Jack";
         /*  empname[0] = 'k'; // error
         console.log('\n');
@@ -45,7 +45,7 @@
         console.log('\n');
 
 
-    /*<!-- ? #4 Changing the case */
+    /* #4 Changing the case */
         let strcasename =  "franchise";
         let strtrim = "  occupation       ";
         console.log(strcasename.toLowerCase()); //franchise
@@ -56,12 +56,70 @@
         console.log(strcasename.at(5)); //h
         console.log(strcasename[strcasename.length - 3]); //i
         console.log(strcasename.slice(4)); //chise
-        console.log(strcasename.slice(1, 5)); //ranc
-        console.log(strcasename.substring(2, 6)); //anch
-        console.log(strcasename.substr(2, 4)); //anch
+        console.log(strcasename.slice(1, 5)); //ranc (not including end)
+        console.log(strcasename.substring(2, 6)); //anch (not including end)
+        console.log(strcasename.substr(2, 4)); //anch (it includes end position)
         console.log(strcasename.concat(" business")); //franchise business
-        console.log(strtrim.trim()); // removes white space (occupation)
-        console.log(strtrim.trimStart()); // removes white space only from the start of a string (occupation       )
-        console.log(strtrim.trimEnd()); // removes white space only form the end of a string (  occupation)
+        console.log(strtrim.trim()); //removes white space (occupation)
+        console.log(strtrim.trimStart()); //removes white space only from the start of a string (occupation       )
+        console.log(strtrim.trimEnd()); //removes white space only frrm the end of a string (  occupation)
+        console.log(strcasename.padStart(20, "0")); //00000000000franchise
+        console.log(strcasename.padEnd(20, 0)); //franchise00000000000
+        console.log('\n');
+
+    // Searching for a substring
+        let words = "Nory was a Catholic because her mother was a Catholic, and Nory’s mother was a Catholic because her father was a Catholic, and her father was a Catholic because his mother was a Catholic, or had been.";
+        console.log(words.indexOf('Catholic')); //11
+        console.log(words.indexOf('Catholic', 12)); //45, to look for next occurence start the search from next number
+        console.log(words.indexOf('catholic')) //-1 returns (-1) if word not found or word isn't case-sensitive
+        console.log(words.indexOf('Nory')); //0, because Nory word found at the beginning
+        console.log(words.includes('mother')); //true
+        console.log("Father".startsWith('Fath')); // true
+        console.log("Father".endsWith('they')); // false
+
+        let target = 'Catholic';
+        let pos = 0;
+        do {
+            let foundpos = words.indexOf(target, pos);
+            if(foundpos == -1) { break } ;
+            console.log(`Found at ${foundpos}`); //Found at 11, 45, 79, 113, 144, 178
+            pos = foundpos + 1;
+        }
+        while(true);
+
+    // Comparing strings 
+        console.log('\n');
+        console.log('a' > 'Z') ; //true (A lowercase letter is always greater than the uppercase:)
+        console.log('a' > 'Ö') ; //false (Letters with diacritical marks are “out of order”:)
+        console.log('turkiye' < 'türkiye'); //true
+        console.log( 'Österreich'.localeCompare('Zealand') ); // -1 (if -ve than less than, if +ve than greater than and if 0 than they are equivalent)
+        
+        // Write a function ucFirst(str) that returns the string str with the uppercased first character, for instance:
+        function ucFirst(str)  {
+            return console.log(str[0].toUpperCase() + str.slice(1)); // Pinki
+        }
+        ucFirst('pinki');
+
+        // Check for spam
+        function checkSpam(str1) {
+            let str2 = str1.toLowerCase();
+            return (str2.includes('viagra') || str2.includes('xxx')) ? console.log('true' + '\n') : console.log('false' + '\n');
+        }
+        checkSpam('buy ViAgRA now'); //true
+        checkSpam('free xXxx'); //true
+        checkSpam("innocent rabbit"); //false
+
+        // Truncate the text
+        function truncate(str, maxlength){
+            let entry = prompt('Enter text', str);
+            return (entry.length > maxlength) ? alert(entry.slice(0, maxlength) + '...') : alert(entry) ;
+        }
+        truncate('Add Some Text', 8); //Add Some...
+
+        // Extract the money
+        function extractCurrencyValue(str){
+            return alert(+str.slice(1)); //120
+        }
+        extractCurrencyValue('$120');
 
 </script>
