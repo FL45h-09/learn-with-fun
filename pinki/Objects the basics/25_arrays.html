@@ -32,6 +32,7 @@
     console.log(fruits.at(-1)); //litchi
     console.log(fruits.at(-2)); //oranges
     
+    
     /* Methods pop/push, shift/unshift */
     // #1. push (appends elements to the end of the array)
     // #2. pop (extracts last elements from the end of the array)
@@ -112,7 +113,20 @@
         [1, 2, 3]
     ];
     console.log(str.toString() === '1,2,3'); //true
+    console.log('\n');
 
+    let fruitsbx = ['apple', 'dragonfruit', 'grapes', 'oranges'];    
+    fruitsbx[-1] = 'litchi';
+    console.log(fruitsbx); //['apple', 'dragonfruit', 'grapes', 'oranges', -1: 'litchi'] 
+    console.log(fruitsbx.length); // 4
 
+    console.log([] === []); // false
+    console.log(0 == ''); 
+    console.log(("0" == false));
+    console.log(typeof ("0" == ''));
+    console.log('\n');
+    
 
+    console.log(Boolean());
+    
 </script>
